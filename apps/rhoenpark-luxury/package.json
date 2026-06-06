@@ -1,0 +1,30 @@
+{
+  "name": "@franco/rhoenpark-luxury",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --check .",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@franco/booking-adapters": "workspace:*",
+    "@franco/booking-core": "workspace:*",
+    "@franco/booking-ui": "workspace:*",
+    "@franco/theme": "workspace:*",
+    "@franco/tracking": "workspace:*",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "^5.5.0",
+    "vite": "^7.0.0"
+  }
+}

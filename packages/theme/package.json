@@ -1,0 +1,17 @@
+{
+  "name": "@franco/theme",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./src/tokens.css"
+  },
+  "sideEffects": ["**/*.css"],
+  "scripts": {
+    "lint": "eslint src --ext .ts,.tsx",
+    "format": "prettier --check .",
+    "test": "vitest run --passWithNoTests"
+  }
+}

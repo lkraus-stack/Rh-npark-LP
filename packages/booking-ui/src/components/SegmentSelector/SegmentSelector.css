@@ -1,0 +1,56 @@
+.segment-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--bk-segment-columns, 2), minmax(0, 1fr));
+  gap: var(--bk-segment-grid-gap);
+  margin-top: var(--bk-segment-grid-margin-top);
+}
+
+.segment-card {
+  display: grid;
+  grid-template-columns: var(--bk-segment-card-template);
+  gap: var(--bk-segment-card-gap);
+  align-items: start;
+  min-height: var(--bk-segment-card-min-height);
+  border: var(--bk-segment-card-border);
+  border-radius: var(--bk-segment-card-radius);
+  padding: var(--bk-segment-card-padding);
+  color: var(--bk-segment-card-color);
+  background: var(--bk-segment-card-background);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--bk-segment-card-transition);
+}
+
+.segment-card:hover,
+.segment-card.active {
+  border-color: var(--bk-segment-card-active-border);
+  box-shadow: var(--bk-segment-card-active-shadow);
+  transform: var(--bk-segment-card-hover-transform);
+}
+
+.segment-card:focus-visible {
+  outline: var(--bk-focus-ring);
+  outline-offset: var(--bk-focus-ring-offset);
+}
+
+.segment-card-icon,
+.segment-card svg {
+  color: var(--bk-segment-card-icon-color);
+}
+
+.segment-card strong,
+.segment-card small {
+  display: block;
+}
+
+.segment-card strong {
+  color: var(--bk-segment-card-title-color);
+  font-size: var(--bk-segment-card-title-size);
+  font-weight: 720;
+}
+
+.segment-card small {
+  margin-top: var(--bk-segment-card-description-margin-top);
+  color: var(--bk-segment-card-description-color);
+  line-height: var(--bk-segment-card-description-line-height);
+}

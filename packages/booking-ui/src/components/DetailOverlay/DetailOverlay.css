@@ -1,0 +1,174 @@
+.detail-layer {
+  align-items: center;
+  justify-content: center;
+  padding: var(--bk-detail-layer-padding);
+}
+
+.detail-overlay {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--bk-detail-overlay-grid);
+  width: var(--bk-detail-overlay-width);
+  max-height: var(--bk-detail-overlay-max-height);
+  overflow: hidden;
+  border: var(--bk-detail-overlay-border);
+  border-radius: var(--bk-detail-overlay-radius);
+  color: var(--bk-detail-overlay-color);
+  background: var(--bk-detail-overlay-background);
+  box-shadow: var(--bk-detail-overlay-shadow);
+}
+
+.detail-media {
+  position: relative;
+  min-height: var(--bk-detail-media-min-height);
+  overflow: hidden;
+  background: var(--bk-detail-media-background);
+}
+
+.detail-media img {
+  width: 100%;
+  height: 100%;
+  min-height: var(--bk-detail-media-min-height);
+  object-fit: cover;
+  filter: var(--bk-detail-media-filter);
+}
+
+.detail-media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: var(--bk-detail-media-overlay);
+}
+
+.detail-media-label {
+  position: absolute;
+  right: var(--bk-detail-media-label-offset);
+  left: var(--bk-detail-media-label-offset);
+  bottom: auto;
+  top: var(--bk-detail-media-label-offset);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--bk-detail-media-label-gap);
+  border: var(--bk-detail-media-label-border);
+  border-radius: var(--bk-detail-media-label-radius);
+  padding: var(--bk-detail-media-label-padding);
+  color: var(--bk-detail-media-label-color);
+  background: var(--bk-detail-media-label-background);
+  backdrop-filter: var(--bk-detail-media-label-filter);
+}
+
+.detail-media-label span,
+.detail-media-label strong {
+  font-weight: 720;
+}
+
+.detail-content {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  overflow: auto;
+  padding: var(--bk-detail-content-padding);
+}
+
+.detail-content h2 {
+  margin-top: var(--bk-detail-heading-margin-top);
+  color: var(--bk-detail-heading-color);
+  font-size: var(--bk-detail-heading-size);
+}
+
+.detail-content p:not(.eyebrow) {
+  margin-top: var(--bk-detail-text-margin-top);
+  color: var(--bk-detail-text-color);
+  font-size: var(--bk-detail-text-size);
+}
+
+.detail-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bk-detail-facts-gap);
+  margin-top: var(--bk-detail-facts-margin-top);
+}
+
+.detail-facts span {
+  border: var(--bk-detail-fact-border);
+  border-radius: var(--bk-detail-fact-radius);
+  padding: var(--bk-detail-fact-padding);
+  color: var(--bk-detail-fact-color);
+  background: var(--bk-detail-fact-background);
+  font-size: var(--bk-detail-fact-font-size);
+  font-weight: 720;
+}
+
+.detail-benefits {
+  display: grid;
+  gap: var(--bk-detail-benefits-gap);
+  margin-top: var(--bk-detail-benefits-margin-top);
+}
+
+.detail-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--bk-detail-benefit-gap);
+  color: var(--bk-detail-benefit-color);
+  line-height: var(--bk-detail-benefit-line-height);
+}
+
+.detail-benefits svg {
+  flex: 0 0 auto;
+  margin-top: var(--bk-detail-benefit-icon-margin-top);
+  color: var(--bk-detail-benefit-icon-color);
+}
+
+.detail-book-button {
+  width: fit-content;
+  margin-top: var(--bk-detail-book-button-margin-top);
+}
+
+@media (max-width: 840px) {
+  .detail-layer {
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .detail-overlay {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-height: 100dvh;
+    border-radius: 0;
+    overflow: auto;
+  }
+
+  .detail-media,
+  .detail-media img {
+    min-height: var(--bk-detail-mobile-media-min-height);
+  }
+
+  .detail-content {
+    overflow: visible;
+  }
+
+  .detail-content h2 {
+    font-size: var(--bk-detail-mobile-heading-size);
+  }
+}
+
+@media (max-width: 560px) {
+  .detail-media,
+  .detail-media img {
+    min-height: var(--bk-detail-small-media-min-height);
+  }
+
+  .detail-content {
+    padding: var(--bk-drawer-small-body-padding);
+  }
+
+  .detail-content h2 {
+    font-size: var(--bk-detail-small-heading-size);
+  }
+
+  .detail-book-button {
+    width: 100%;
+  }
+}

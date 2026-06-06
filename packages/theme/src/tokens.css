@@ -1,0 +1,212 @@
+/*
+ * Franco Booking semantic tokens.
+ * Shared components consume only --bk-* variables. Customer apps import this file
+ * and override the same semantic names in their own theme file.
+ */
+:root {
+  /* Color */
+  --bk-primary: hsl(160 47% 16%);
+  --bk-primary-soft: hsl(160 41% 21%);
+  --bk-on-primary: hsl(48 100% 98%);
+  --bk-accent: hsl(42 43% 60%);
+  --bk-accent-soft: hsl(42 43% 60% / 0.28);
+  --bk-on-accent: hsl(120 8% 10%);
+  --bk-surface: hsl(48 100% 98%);
+  --bk-surface-elevated: hsl(0 0% 100%);
+  --bk-surface-muted: hsl(42 50% 95%);
+  --bk-text: hsl(120 8% 10%);
+  --bk-text-muted: hsl(34 8% 42%);
+  --bk-text-soft: hsl(48 100% 98% / 0.74);
+  --bk-border: hsl(42 43% 60% / 0.28);
+  --bk-border-strong: hsl(120 8% 10% / 0.16);
+  --bk-success: hsl(160 47% 24%);
+  --bk-warning: hsl(42 75% 54%);
+  --bk-error: hsl(352 50% 32%);
+  --bk-overlay: rgba(0, 0, 0, 0.56);
+
+  /* Typography */
+  --bk-font-display: "Cormorant Garamond", Georgia, serif;
+  --bk-font-body: Inter, system-ui, sans-serif;
+  --bk-text-xs: 0.75rem;
+  --bk-text-sm: 0.875rem;
+  --bk-text-base: 1rem;
+  --bk-text-lg: 1.125rem;
+  --bk-text-xl: 1.375rem;
+  --bk-text-2xl: 1.75rem;
+  --bk-text-3xl: 2.5rem;
+  --bk-text-display: 4rem;
+  --bk-leading-tight: 1.1;
+  --bk-leading-normal: 1.5;
+  --bk-leading-relaxed: 1.7;
+
+  /* Spacing */
+  --bk-space-1: 4px;
+  --bk-space-2: 8px;
+  --bk-space-3: 12px;
+  --bk-space-4: 16px;
+  --bk-space-5: 20px;
+  --bk-space-6: 24px;
+  --bk-space-7: 28px;
+  --bk-space-8: 32px;
+  --bk-space-9: 36px;
+  --bk-space-10: 40px;
+  --bk-space-11: 44px;
+  --bk-space-12: 48px;
+  --bk-space-13: 52px;
+  --bk-space-14: 56px;
+  --bk-space-15: 60px;
+  --bk-space-16: 64px;
+  --bk-space-section: clamp(48px, 8vw, 120px);
+  --bk-container-max: 1280px;
+  --bk-content-max: 760px;
+
+  /* Radius */
+  --bk-radius-none: 0;
+  --bk-radius-sm: 4px;
+  --bk-radius-md: 8px;
+  --bk-radius-lg: 16px;
+  --bk-radius-pill: 9999px;
+
+  /* Shadow */
+  --bk-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --bk-shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --bk-shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.12);
+
+  /* Motion */
+  --bk-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --bk-duration-fast: 180ms;
+  --bk-duration-normal: 320ms;
+  --bk-duration-slow: 560ms;
+
+  /* Z-index */
+  --bk-z-drawer: 50;
+  --bk-z-modal: 60;
+  --bk-z-toast: 70;
+
+  /*
+   * Component defaults for shared booking-ui primitives.
+   * Customer themes may override these to preserve brand-specific layouts while
+   * components keep consuming semantic --bk-* variables only.
+   */
+  --bk-dialog-layer-z: var(--bk-z-modal);
+  --bk-dialog-overlay-background: var(--bk-overlay);
+  --bk-dialog-backdrop-filter: blur(18px);
+  --bk-dialog-close-size: 46px;
+  --bk-dialog-close-offset: 18px;
+  --bk-dialog-close-border: 1px solid var(--bk-border-strong);
+  --bk-dialog-close-radius: var(--bk-radius-md);
+  --bk-dialog-close-color: var(--bk-primary);
+  --bk-dialog-close-background: var(--bk-surface);
+  --bk-dialog-close-shadow: var(--bk-shadow-md);
+  --bk-focus-ring: 3px solid var(--bk-accent-soft);
+  --bk-focus-ring-offset: var(--bk-space-1);
+
+  --bk-detail-layer-padding: clamp(16px, 4vw, 54px);
+  --bk-detail-overlay-grid: minmax(320px, 0.95fr) minmax(380px, 1fr);
+  --bk-detail-overlay-width: min(var(--bk-container-max), 100%);
+  --bk-detail-overlay-max-height: min(860px, calc(100dvh - 42px));
+  --bk-detail-overlay-border: 1px solid var(--bk-border);
+  --bk-detail-overlay-radius: var(--bk-radius-md);
+  --bk-detail-overlay-color: var(--bk-text);
+  --bk-detail-overlay-background: var(--bk-surface);
+  --bk-detail-overlay-shadow: var(--bk-shadow-lg);
+  --bk-detail-media-min-height: 620px;
+  --bk-detail-media-background: var(--bk-primary);
+  --bk-detail-media-filter: saturate(0.94) contrast(1.03);
+  --bk-detail-media-overlay: linear-gradient(180deg, transparent, var(--bk-overlay));
+  --bk-detail-media-label-offset: var(--bk-space-5);
+  --bk-detail-media-label-gap: var(--bk-space-4);
+  --bk-detail-media-label-border: 1px solid var(--bk-border);
+  --bk-detail-media-label-radius: var(--bk-radius-md);
+  --bk-detail-media-label-padding: var(--bk-space-4);
+  --bk-detail-media-label-color: var(--bk-on-primary);
+  --bk-detail-media-label-background: var(--bk-overlay);
+  --bk-detail-media-label-filter: blur(14px);
+  --bk-detail-content-padding: clamp(28px, 4vw, 58px);
+  --bk-detail-heading-color: var(--bk-primary);
+  --bk-detail-heading-size: 4.1rem;
+  --bk-detail-heading-margin-top: 10px;
+  --bk-detail-text-color: var(--bk-text-muted);
+  --bk-detail-text-size: 1.08rem;
+  --bk-detail-text-margin-top: 22px;
+  --bk-detail-facts-gap: 10px;
+  --bk-detail-facts-margin-top: 30px;
+  --bk-detail-fact-border: 1px solid var(--bk-border-strong);
+  --bk-detail-fact-radius: var(--bk-radius-md);
+  --bk-detail-fact-padding: 10px 12px;
+  --bk-detail-fact-font-size: 0.84rem;
+  --bk-detail-fact-color: var(--bk-primary);
+  --bk-detail-fact-background: var(--bk-surface-muted);
+  --bk-detail-benefits-gap: 13px;
+  --bk-detail-benefits-margin-top: 30px;
+  --bk-detail-benefit-color: var(--bk-text);
+  --bk-detail-benefit-gap: 10px;
+  --bk-detail-benefit-line-height: 1.48;
+  --bk-detail-benefit-icon-margin-top: 3px;
+  --bk-detail-benefit-icon-color: var(--bk-error);
+  --bk-detail-book-button-margin-top: 34px;
+
+  --bk-drawer-layer-justify: flex-end;
+  --bk-drawer-width: min(620px, 100vw);
+  --bk-drawer-border: 1px solid var(--bk-border);
+  --bk-drawer-color: var(--bk-text);
+  --bk-drawer-background: var(--bk-surface);
+  --bk-drawer-shadow: var(--bk-shadow-lg);
+  --bk-drawer-header-gap: 18px;
+  --bk-drawer-header-border: 1px solid var(--bk-border-strong);
+  --bk-drawer-header-padding: 34px 92px 24px 34px;
+  --bk-drawer-heading-color: var(--bk-primary);
+  --bk-drawer-heading-size: 3.1rem;
+  --bk-drawer-body-padding: 28px 34px 30px;
+  --bk-drawer-footer-gap: 12px;
+  --bk-drawer-footer-border: 1px solid var(--bk-border-strong);
+  --bk-drawer-footer-padding: 18px 34px;
+  --bk-drawer-footer-background: var(--bk-surface);
+  --bk-drawer-footer-filter: blur(14px);
+
+  --bk-step-gap: 6px;
+  --bk-step-padding: 18px 34px 0;
+  --bk-step-item-min-height: 38px;
+  --bk-step-item-border: 1px solid var(--bk-border-strong);
+  --bk-step-item-radius: var(--bk-radius-md);
+  --bk-step-item-color: var(--bk-text-muted);
+  --bk-step-item-background: var(--bk-surface);
+  --bk-step-item-font: var(--bk-font-display);
+  --bk-step-item-active-color: var(--bk-on-primary);
+  --bk-step-item-active-background: var(--bk-primary);
+
+  --bk-booking-step-heading-color: var(--bk-primary);
+  --bk-booking-step-heading-size: 2.35rem;
+
+  --bk-segment-grid-gap: 12px;
+  --bk-segment-grid-margin-top: 22px;
+  --bk-segment-card-template: 34px minmax(0, 1fr);
+  --bk-segment-card-gap: var(--bk-space-4);
+  --bk-segment-card-min-height: 102px;
+  --bk-segment-card-border: 1px solid var(--bk-border-strong);
+  --bk-segment-card-radius: var(--bk-radius-md);
+  --bk-segment-card-padding: 18px;
+  --bk-segment-card-color: var(--bk-text);
+  --bk-segment-card-background: var(--bk-surface);
+  --bk-segment-card-active-border: var(--bk-border);
+  --bk-segment-card-active-shadow: var(--bk-shadow-md);
+  --bk-segment-card-icon-color: var(--bk-error);
+  --bk-segment-card-title-color: var(--bk-primary);
+  --bk-segment-card-title-size: var(--bk-text-base);
+  --bk-segment-card-description-margin-top: 7px;
+  --bk-segment-card-description-color: var(--bk-text-muted);
+  --bk-segment-card-description-line-height: var(--bk-leading-normal);
+  --bk-segment-card-transition: border-color var(--bk-duration-fast) ease, box-shadow var(--bk-duration-fast) ease, transform var(--bk-duration-fast) ease;
+  --bk-segment-card-hover-transform: translateY(-2px);
+
+  --bk-detail-mobile-media-min-height: 340px;
+  --bk-detail-small-media-min-height: 260px;
+  --bk-detail-mobile-heading-size: 2.9rem;
+  --bk-detail-small-heading-size: 2.35rem;
+  --bk-drawer-mobile-heading-size: 2.9rem;
+  --bk-drawer-small-heading-size: 2.35rem;
+  --bk-drawer-small-body-padding: 24px 22px;
+  --bk-drawer-small-header-padding: 26px 82px 20px 22px;
+  --bk-step-small-padding: 16px 22px 0;
+  --bk-drawer-small-footer-padding: 16px 22px;
+}
