@@ -20,6 +20,15 @@ export interface DetailOverlayProps<TDetail extends DetailOverlayDetail = Detail
   closeLabel?: string;
 }
 
+const FOCUSABLE_SELECTOR = [
+  "a[href]",
+  "button:not([disabled])",
+  "textarea:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "[tabindex]:not([tabindex='-1'])",
+].join(",");
+
 export function DetailOverlay<TDetail extends DetailOverlayDetail = DetailOverlayDetail>({
   detail,
   onClose,
@@ -29,6 +38,7 @@ export function DetailOverlay<TDetail extends DetailOverlayDetail = DetailOverla
   closeLabel = "Detailfenster schließen",
 }: DetailOverlayProps<TDetail>) {
   const titleId = useId();
+  const detailOverlayRef = useRef<HTMLElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const onCloseRef = useRef(onClose);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -41,7 +51,8 @@ export function DetailOverlay<TDetail extends DetailOverlayDetail = DetailOverla
   useEffect(() => {
     if (!detail) return undefined;
 
-    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    previousFocusRef.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.setTimeout(() => closeButtonRef.current?.focus(), 0);
@@ -49,6 +60,11 @@ export function DetailOverlay<TDetail extends DetailOverlayDetail = DetailOverla
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         onCloseRef.current();
+        return;
+      }
+
+      if (event.key === "Tab") {
+        trapFocus(event);
       }
     }
 
@@ -59,6 +75,35 @@ export function DetailOverlay<TDetail extends DetailOverlayDetail = DetailOverla
       previousFocusRef.current?.focus();
     };
   }, [detail]);
+
+  function getFocusableElements() {
+    if (!detailOverlayRef.current) return [];
+    return Array.from(
+      detailOverlayRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+    ).filter((element) => !element.hasAttribute("disabled") && element.tabIndex !== -1);
+  }
+
+  function trapFocus(event: KeyboardEvent) {
+    if (event.key !== "Tab") return;
+
+    const focusableElements = getFocusableElements();
+    if (!focusableElements.length) {
+      event.preventDefault();
+      closeButtonRef.current?.focus();
+      return;
+    }
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement.focus();
+    }
+  }
 
   return (
     <AnimatePresence>
@@ -71,17 +116,24 @@ export function DetailOverlay<TDetail extends DetailOverlayDetail = DetailOverla
           onClick={onClose}
         >
           <motion.section
+            ref={detailOverlayRef}
             className="detail-overlay"
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            initial={shouldReduceMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 34, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={shouldReduceMotion ? { opacity: 0, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.98 }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={shouldReduceMotion ? { opacity: 0, y: 0 } : { opacity: 0, y: 12 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
             onClick={(event) => event.stopPropagation()}
           >
-            <button ref={closeButtonRef} className="dialog-close" type="button" aria-label={closeLabel} onClick={onClose}>
+            <button
+              ref={closeButtonRef}
+              className="dialog-close"
+              type="button"
+              aria-label={closeLabel}
+              onClick={onClose}
+            >
               <X size={20} aria-hidden="true" />
             </button>
             <div className="detail-media">
@@ -109,7 +161,11 @@ export function DetailOverlay<TDetail extends DetailOverlayDetail = DetailOverla
                 ))}
               </ul>
               {onPrimaryAction && (
-                <button className="button primary detail-book-button" type="button" onClick={() => onPrimaryAction(detail)}>
+                <button
+                  className="button primary detail-book-button"
+                  type="button"
+                  onClick={() => onPrimaryAction(detail)}
+                >
                   {primaryActionLabel}
                   <ArrowRight size={18} aria-hidden="true" />
                 </button>

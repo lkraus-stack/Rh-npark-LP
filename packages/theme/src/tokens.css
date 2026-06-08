@@ -104,7 +104,7 @@
   --bk-detail-layer-padding: clamp(16px, 4vw, 54px);
   --bk-detail-overlay-grid: minmax(320px, 0.95fr) minmax(380px, 1fr);
   --bk-detail-overlay-width: min(var(--bk-container-max), 100%);
-  --bk-detail-overlay-max-height: min(860px, calc(100dvh - 42px));
+  --bk-detail-overlay-max-height: min(90vh, 85dvh);
   --bk-detail-overlay-border: 1px solid var(--bk-border);
   --bk-detail-overlay-radius: var(--bk-radius-md);
   --bk-detail-overlay-color: var(--bk-text);
@@ -124,10 +124,13 @@
   --bk-detail-media-label-filter: blur(14px);
   --bk-detail-content-padding: clamp(28px, 4vw, 58px);
   --bk-detail-heading-color: var(--bk-primary);
-  --bk-detail-heading-size: 4.1rem;
+  --bk-detail-heading-size: clamp(1.4rem, 3vw, 2rem);
+  --bk-detail-heading-line-height: 1.12;
+  --bk-detail-heading-letter-spacing: 0;
   --bk-detail-heading-margin-top: 10px;
   --bk-detail-text-color: var(--bk-text-muted);
-  --bk-detail-text-size: 1.08rem;
+  --bk-detail-text-size: clamp(1rem, 1.2vw, 1.125rem);
+  --bk-detail-text-line-height: 1.6;
   --bk-detail-text-margin-top: 22px;
   --bk-detail-facts-gap: 10px;
   --bk-detail-facts-margin-top: 30px;
@@ -141,7 +144,7 @@
   --bk-detail-benefits-margin-top: 30px;
   --bk-detail-benefit-color: var(--bk-text);
   --bk-detail-benefit-gap: 10px;
-  --bk-detail-benefit-line-height: 1.48;
+  --bk-detail-benefit-line-height: 1.6;
   --bk-detail-benefit-icon-margin-top: 3px;
   --bk-detail-benefit-icon-color: var(--bk-error);
   --bk-detail-book-button-margin-top: 34px;
@@ -156,7 +159,9 @@
   --bk-drawer-header-border: 1px solid var(--bk-border-strong);
   --bk-drawer-header-padding: 34px 92px 24px 34px;
   --bk-drawer-heading-color: var(--bk-primary);
-  --bk-drawer-heading-size: 3.1rem;
+  --bk-drawer-heading-size: clamp(1.4rem, 3vw, 2rem);
+  --bk-drawer-heading-line-height: 1.12;
+  --bk-drawer-heading-letter-spacing: 0;
   --bk-drawer-body-padding: 28px 34px 30px;
   --bk-drawer-footer-gap: 12px;
   --bk-drawer-footer-border: 1px solid var(--bk-border-strong);
@@ -176,7 +181,9 @@
   --bk-step-item-active-background: var(--bk-primary);
 
   --bk-booking-step-heading-color: var(--bk-primary);
-  --bk-booking-step-heading-size: 2.35rem;
+  --bk-booking-step-heading-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  --bk-booking-step-heading-line-height: 1.15;
+  --bk-booking-step-heading-letter-spacing: 0;
 
   --bk-segment-grid-gap: 12px;
   --bk-segment-grid-margin-top: 22px;
@@ -196,15 +203,17 @@
   --bk-segment-card-description-margin-top: 7px;
   --bk-segment-card-description-color: var(--bk-text-muted);
   --bk-segment-card-description-line-height: var(--bk-leading-normal);
-  --bk-segment-card-transition: border-color var(--bk-duration-fast) ease, box-shadow var(--bk-duration-fast) ease, transform var(--bk-duration-fast) ease;
+  --bk-segment-card-transition:
+    border-color var(--bk-duration-fast) ease, box-shadow var(--bk-duration-fast) ease,
+    transform var(--bk-duration-fast) ease;
   --bk-segment-card-hover-transform: translateY(-2px);
 
   --bk-detail-mobile-media-min-height: 340px;
   --bk-detail-small-media-min-height: 260px;
-  --bk-detail-mobile-heading-size: 2.9rem;
-  --bk-detail-small-heading-size: 2.35rem;
-  --bk-drawer-mobile-heading-size: 2.9rem;
-  --bk-drawer-small-heading-size: 2.35rem;
+  --bk-detail-mobile-heading-size: clamp(1.4rem, 3vw, 1.75rem);
+  --bk-detail-small-heading-size: clamp(1.35rem, 5vw, 1.6rem);
+  --bk-drawer-mobile-heading-size: clamp(1.4rem, 3vw, 1.75rem);
+  --bk-drawer-small-heading-size: clamp(1.35rem, 5vw, 1.6rem);
   --bk-drawer-small-body-padding: 24px 22px;
   --bk-drawer-small-header-padding: 26px 82px 20px 22px;
   --bk-step-small-padding: 16px 22px 0;

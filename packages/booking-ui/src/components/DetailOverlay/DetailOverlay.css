@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: var(--bk-detail-overlay-grid);
   width: var(--bk-detail-overlay-width);
+  max-width: 100%;
   max-height: var(--bk-detail-overlay-max-height);
   overflow: hidden;
   border: var(--bk-detail-overlay-border);
@@ -50,6 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--bk-detail-media-label-gap);
   border: var(--bk-detail-media-label-border);
   border-radius: var(--bk-detail-media-label-radius);
@@ -61,27 +63,53 @@
 
 .detail-media-label span,
 .detail-media-label strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-weight: 720;
 }
 
 .detail-content {
   display: flex;
+  min-width: 0;
   min-height: 0;
   flex-direction: column;
-  overflow: auto;
+  max-height: var(--bk-detail-overlay-max-height);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: var(--bk-detail-content-padding);
+  scroll-behavior: smooth;
+  scrollbar-color: var(--bk-border) transparent;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.detail-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.detail-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.detail-content::-webkit-scrollbar-thumb {
+  border-radius: var(--bk-radius-pill);
+  background: var(--bk-border);
 }
 
 .detail-content h2 {
   margin-top: var(--bk-detail-heading-margin-top);
   color: var(--bk-detail-heading-color);
   font-size: var(--bk-detail-heading-size);
+  letter-spacing: var(--bk-detail-heading-letter-spacing);
+  line-height: var(--bk-detail-heading-line-height);
 }
 
 .detail-content p:not(.eyebrow) {
   margin-top: var(--bk-detail-text-margin-top);
   color: var(--bk-detail-text-color);
   font-size: var(--bk-detail-text-size);
+  line-height: var(--bk-detail-text-line-height);
 }
 
 .detail-facts {
@@ -92,6 +120,7 @@
 }
 
 .detail-facts span {
+  min-width: 0;
   border: var(--bk-detail-fact-border);
   border-radius: var(--bk-detail-fact-radius);
   padding: var(--bk-detail-fact-padding);
@@ -99,6 +128,7 @@
   background: var(--bk-detail-fact-background);
   font-size: var(--bk-detail-fact-font-size);
   font-weight: 720;
+  overflow-wrap: anywhere;
 }
 
 .detail-benefits {
@@ -135,9 +165,10 @@
   .detail-overlay {
     grid-template-columns: 1fr;
     width: 100%;
+    height: 100dvh;
     max-height: 100dvh;
     border-radius: 0;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .detail-media,
@@ -146,7 +177,9 @@
   }
 
   .detail-content {
-    overflow: visible;
+    max-height: calc(100dvh - var(--bk-detail-mobile-media-min-height));
+    min-height: 0;
+    overflow-y: auto;
   }
 
   .detail-content h2 {
@@ -161,6 +194,8 @@
   }
 
   .detail-content {
+    max-height: calc(100dvh - var(--bk-detail-small-media-min-height));
+    min-height: 0;
     padding: var(--bk-drawer-small-body-padding);
   }
 

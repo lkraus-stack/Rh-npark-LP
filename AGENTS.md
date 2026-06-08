@@ -16,6 +16,65 @@ monorepo layout below is the intended target architecture and should guide futur
 migration work. Do not create folders, move files, or restructure the project merely
 because this document names the future layout.
 
+## Rhön Park Luxury Line Context
+
+The active customer experience is the Rhön Park Hotel Luxury Line pitch prototype.
+It presents a premium subbrand for higher-value inquiries around Signature Suites,
+Premium Apartments, future Private Chalets, Executive Retreats, and high-value
+family upgrades.
+
+Design and copy should sell the Rhön as a calm, central, nature-driven location in
+Germany. The tone is premium, regional, quiet, authentic, and concrete. Avoid generic
+hotel phrases such as "Willkommen in einer Welt der Entspannung". User-facing text
+is German by default.
+
+This is not a Next.js/Tailwind project. The active app is Vite/React under
+`apps/rhoenpark-luxury`, using Framer Motion, Lucide icons, shared Franco booking UI
+packages, and vanilla CSS/custom properties.
+
+## Higgsfield / Creative AI Usage
+
+Use Higgsfield more openly when the user asks for creative assets, such as:
+
+- "generate image/video for ..."
+- "nutze Higgsfield ..."
+- "erstelle ein Hero-Video/Bild ..."
+- "mach das visueller/luxuriöser mit generierten Assets ..."
+- requests for hotel visuals, chalet concepts, wellness scenes, room atmospheres,
+  campaign images, or video loops where AI generation clearly helps the pitch.
+
+Do not require the exact phrase `generate video for [scene-description]`. If the
+intent is clearly asset generation, proceed with Higgsfield. If the request is
+ambiguous, briefly propose the Higgsfield asset direction before generating.
+
+Never call Higgsfield automatically during ordinary build, deploy, test, lint, Git,
+or code-only changes. Generated assets must be saved as files in the app repo and
+referenced from code only after they exist.
+
+Asset targets for Rhön Park:
+
+- Images: `apps/rhoenpark-luxury/public/images/concepts/[asset-name].jpg`
+- Videos: `apps/rhoenpark-luxury/public/videos/[asset-name].mp4`
+
+Video output should be H.264 MP4, max 1920x1080, ideally below 8 MB per file.
+Implement local videos with native `<video autoPlay muted playsInline loop>`.
+Hero video assets should be treated as LCP-sensitive and preloaded where practical.
+
+Planned creative directions:
+
+- Hero: Rhön landscape at sunrise, light mist over hills, future private chalet
+  village, quiet editorial luxury.
+- Wellness: calm pool or sauna atmosphere, soft morning water movement, no crowded
+  spa scene.
+- Rooms: warm suite/chalet interior, soft light, natural materials, quiet Rhön view.
+- Executive Retreat: premium breakout or boardroom atmosphere, central Germany,
+  high-quality but restrained.
+
+All AI-generated material is concept material until the hotel approves it. Avoid
+fake operational claims, fake signage, third-party logos, unrealistic room sizes,
+or imagery that implies finished chalets already exist unless the UI labels it as
+concept/future vision.
+
 ## Two Flow Modes
 
 Every booking interaction is one of two modes. Never mix them inside a single flow.

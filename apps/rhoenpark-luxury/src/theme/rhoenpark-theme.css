@@ -45,6 +45,7 @@
   --bk-detail-overlay-color: #171b18;
   --bk-detail-overlay-background: #fffdf7;
   --bk-detail-overlay-shadow: 0 48px 140px rgba(0, 0, 0, 0.42);
+  --bk-detail-overlay-max-height: min(90vh, 85dvh);
   --bk-detail-media-background: #0f261f;
   --bk-detail-media-overlay: linear-gradient(180deg, rgba(15, 38, 31, 0.02), rgba(15, 38, 31, 0.58));
   --bk-detail-media-label-border: 1px solid rgba(255, 253, 247, 0.22);
@@ -52,7 +53,11 @@
   --bk-detail-media-label-color: #fffdf7;
   --bk-detail-media-label-background: rgba(23, 27, 24, 0.48);
   --bk-detail-heading-color: #163d32;
+  --bk-detail-heading-size: clamp(1.4rem, 3vw, 2rem);
+  --bk-detail-mobile-heading-size: clamp(1.4rem, 3vw, 1.75rem);
+  --bk-detail-small-heading-size: clamp(1.35rem, 5vw, 1.6rem);
   --bk-detail-text-color: #746d62;
+  --bk-detail-text-size: clamp(1rem, 1.2vw, 1.125rem);
   --bk-detail-fact-border: 1px solid rgba(22, 61, 50, 0.14);
   --bk-detail-fact-radius: 8px;
   --bk-detail-fact-color: #163d32;
@@ -67,6 +72,9 @@
   --bk-drawer-shadow: -38px 0 100px rgba(0, 0, 0, 0.36);
   --bk-drawer-header-border: 1px solid rgba(22, 61, 50, 0.12);
   --bk-drawer-heading-color: #163d32;
+  --bk-drawer-heading-size: clamp(1.4rem, 3vw, 2rem);
+  --bk-drawer-mobile-heading-size: clamp(1.4rem, 3vw, 1.75rem);
+  --bk-drawer-small-heading-size: clamp(1.35rem, 5vw, 1.6rem);
   --bk-drawer-footer-border: 1px solid rgba(22, 61, 50, 0.12);
   --bk-drawer-footer-background: rgba(255, 253, 247, 0.9);
 
@@ -79,6 +87,7 @@
   --bk-step-item-active-background: #163d32;
 
   --bk-booking-step-heading-color: #163d32;
+  --bk-booking-step-heading-size: clamp(1.35rem, 2.6vw, 1.9rem);
   --bk-segment-card-border: 1px solid rgba(22, 61, 50, 0.12);
   --bk-segment-card-radius: 8px;
   --bk-segment-card-color: #171b18;

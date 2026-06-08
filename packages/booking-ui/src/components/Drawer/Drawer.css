@@ -45,6 +45,8 @@
   margin-top: var(--bk-space-2);
   color: var(--bk-drawer-heading-color);
   font-size: var(--bk-drawer-heading-size);
+  letter-spacing: var(--bk-drawer-heading-letter-spacing);
+  line-height: var(--bk-drawer-heading-line-height);
 }
 
 .dialog-close {
@@ -62,17 +64,32 @@
   background: var(--bk-dialog-close-background);
   cursor: pointer;
   box-shadow: var(--bk-dialog-close-shadow);
+  transition:
+    transform var(--bk-duration-fast) ease,
+    box-shadow var(--bk-duration-fast) ease,
+    background-color var(--bk-duration-fast) ease;
+}
+
+.dialog-close:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--bk-shadow-md);
 }
 
 .booking-body {
   flex: 1;
-  overflow: auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: var(--bk-drawer-body-padding);
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .booking-step h3 {
   color: var(--bk-booking-step-heading-color);
   font-size: var(--bk-booking-step-heading-size);
+  letter-spacing: var(--bk-booking-step-heading-letter-spacing);
+  line-height: var(--bk-booking-step-heading-line-height);
 }
 
 .booking-footer {
