@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { DetailOverlay, Drawer, SegmentSelector, StepIndicator } from "@franco/booking-ui";
@@ -49,7 +49,7 @@ const generatedAssetRegistry = {
   heroFilm: {
     publicUrl: "/videos/luxury-line-hero.mp4",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/luxury-line-hero-poster.png",
+    fallback: "/images/concepts/luxury-line-hero-poster.jpg",
     alt: "Cinematische Drohnenaufnahme über die Rhön mit Resort-Konzept im Morgenlicht",
     metaDescription:
       "Hero-Video für die Luxury Line: Rhön-Landschaft, Morgenlicht, Nebel und ruhige Resort-Premiumstimmung.",
@@ -71,7 +71,7 @@ const generatedAssetRegistry = {
   wellnessStill: {
     publicUrl: "/images/concepts/priority-wellness.jpg",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/spa-infinity-pool-poster.png",
+    fallback: "/images/concepts/spa-infinity-pool-poster.jpg",
     alt: "Konzeptmotiv für ruhige Wellness-Atmosphäre",
     metaDescription:
       "Prompt-ready Wellnessmotiv für Pool, Sauna oder Ruhebereich; noch nicht lokal generiert.",
@@ -82,7 +82,7 @@ const generatedAssetRegistry = {
   natureFilm: {
     publicUrl: "/videos/rhoen-biosphere-sunrise.mp4",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/rhoen-biosphere-sunrise-poster.png",
+    fallback: "/images/concepts/rhoen-biosphere-sunrise-poster.jpg",
     alt: "Drohnenflug über mistige Hügel der Rhön-Biosphäre bei Sonnenaufgang",
     metaDescription:
       "Naturvideo für die Rhön-Biosphäre: Waldhügel, Morgennebel, goldene Stunde und weite Landschaft.",
@@ -93,7 +93,7 @@ const generatedAssetRegistry = {
   spaFilm: {
     publicUrl: "/videos/spa-infinity-pool.mp4",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/spa-infinity-pool-poster.png",
+    fallback: "/images/concepts/spa-infinity-pool-poster.jpg",
     alt: "Ruhiger Indoor-Infinitypool mit warmem Licht und Waldblick",
     metaDescription:
       "Wellnessvideo für Spa-Erlebnis: stilles Wasser, Dampf, Abendlicht und ruhige Luxus-Atmosphäre.",
@@ -104,7 +104,7 @@ const generatedAssetRegistry = {
   outdoorPoolFilm: {
     publicUrl: "/videos/outdoor-infinity-pool-rhoen.mp4",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/outdoor-infinity-pool-rhoen-poster.png",
+    fallback: "/images/concepts/outdoor-infinity-pool-rhoen-poster.jpg",
     alt: "Sonniger Outdoor-Infinitypool mit Blick auf grüne Rhön-Hügel",
     metaDescription:
       "Outdoor-Wellnessclip für sonnige Pool- und Rhönblick-Inhalte: klares Wasser, warme Tagesstimmung und grüne Hügellandschaft.",
@@ -115,7 +115,7 @@ const generatedAssetRegistry = {
   suiteFilm: {
     publicUrl: "/videos/suite-forest-view.mp4",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/suite-forest-view-poster.png",
+    fallback: "/images/concepts/suite-forest-view-poster.jpg",
     alt: "Langsame Kamerafahrt durch eine elegante Suite mit Rhön-Waldblick",
     metaDescription:
       "Suitenvideo für Charles-Suiten: Holz, Leinen, Tageslicht, Wald- und Hügelblick.",
@@ -126,7 +126,7 @@ const generatedAssetRegistry = {
   breakfastFilm: {
     publicUrl: "/videos/breakfast-suite-morning.mp4",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/breakfast-suite-morning-poster.png",
+    fallback: "/images/concepts/breakfast-suite-morning-poster.jpg",
     alt: "Suiten-Frühstück mit Kaffee, Brot, Ei und Beeren im sanften Morgenlicht",
     metaDescription:
       "Frühstücksclip für den Morgen-Tab: helles Tageslicht, ruhiger Tisch, Kaffee, Brot, Eier und regionale Frische.",
@@ -137,7 +137,7 @@ const generatedAssetRegistry = {
   diningFilm: {
     publicUrl: "/videos/dining-signature-dish.mp4",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/dining-signature-dish-poster.png",
+    fallback: "/images/concepts/dining-signature-dish-poster.jpg",
     alt: "Fein angerichtetes A-la-carte-Gericht bei warmem Abendlicht",
     metaDescription:
       "Dinnerclip für A-la-carte am Abend: warmes Licht, Tellergericht, Kerzenstimmung und Fine-Dining-Anmutung.",
@@ -148,7 +148,7 @@ const generatedAssetRegistry = {
   signatureDiningFilm: {
     publicUrl: "/videos/signature-chefs-table.mp4",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: "/images/concepts/signature-chefs-table-poster.png",
+    fallback: "/images/concepts/signature-chefs-table-poster.jpg",
     alt: "Privater Signature-Dining-Moment mit Menükarte, Kristallglas und Kerzenlicht",
     metaDescription:
       "Signature-Clip für Chef's Table und besondere Anlässe: privater Tisch, Menükarte, Pairing-Glas und ruhige Abenddramaturgie.",
@@ -164,8 +164,8 @@ const FLOW_MODE = "inquiry";
 const BOOKING_STORAGE_KEY = `franco-booking-${PROPERTY_ID}-${FLOW_MODE}`;
 
 const reveal = {
-  hidden: { opacity: 0, y: 34 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const stagger = {
@@ -916,6 +916,8 @@ function App() {
   const [bookingSuccess, setBookingSuccess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef(null);
+  const mobileNavId = "mobile-primary-nav";
   const { scrollYProgress } = useScroll();
   const shouldReduceMotion = useReducedMotion();
   const heroScale = useTransform(scrollYProgress, [0, 0.22], [1, shouldReduceMotion ? 1 : 1.08]);
@@ -975,6 +977,29 @@ function App() {
       source_section: initialUrlPreset.sourceSection || "url",
     });
   }, [initialUrlPreset]);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    function handlePointerDown(event) {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    }
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    }
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen]);
 
   function openBooking(preset = {}) {
     const sourceSection = preset.sourceSection || preset.source_section || "page";
@@ -1099,7 +1124,7 @@ function App() {
 
   return (
     <>
-      <header className="site-header" aria-label="Hauptnavigation">
+      <header className="site-header" aria-label="Hauptnavigation" ref={headerRef}>
         <a className="brand" href="#top" aria-label="Rhön Park Luxury Line Start">
           <span className="brand-mark">RPL</span>
           <span>
@@ -1127,39 +1152,50 @@ function App() {
           type="button"
           aria-label={menuOpen ? "Navigation schließen" : "Navigation öffnen"}
           aria-expanded={menuOpen}
+          aria-controls={mobileNavId}
           onClick={() => setMenuOpen((open) => !open)}
         >
           <Menu size={22} />
         </button>
-        {menuOpen && (
-          <nav className="mobile-nav" aria-label="Mobile Seitennavigation">
-            <a href="#erlebnis" onClick={() => setMenuOpen(false)}>
-              Erlebnis
-            </a>
-            <a href="#tagungen" onClick={() => setMenuOpen(false)}>
-              Tagungen
-            </a>
-            <a href="#suiten-chalets" onClick={() => setMenuOpen(false)}>
-              Suiten & Chalets
-            </a>
-            <a href="#biosphaere" onClick={() => setMenuOpen(false)}>
-              Rhön-Natur
-            </a>
-            <a href="#kulinarik" onClick={() => setMenuOpen(false)}>
-              Kulinarik
-            </a>
-            <button
-              className="mobile-booking-link"
-              type="button"
-              onClick={() => {
-                setMenuOpen(false);
-                openBooking({ segment: "executive", sourceSection: "mobile_nav" });
-              }}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.nav
+              id={mobileNavId}
+              className="mobile-nav"
+              aria-label="Mobile Seitennavigation"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={shouldReduceMotion ? undefined : { opacity: 0, y: -8 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
-              Private Anfrage starten
-            </button>
-          </nav>
-        )}
+              <a href="#erlebnis" onClick={() => setMenuOpen(false)}>
+                Erlebnis
+              </a>
+              <a href="#tagungen" onClick={() => setMenuOpen(false)}>
+                Tagungen
+              </a>
+              <a href="#suiten-chalets" onClick={() => setMenuOpen(false)}>
+                Suiten & Chalets
+              </a>
+              <a href="#biosphaere" onClick={() => setMenuOpen(false)}>
+                Rhön-Natur
+              </a>
+              <a href="#kulinarik" onClick={() => setMenuOpen(false)}>
+                Kulinarik
+              </a>
+              <button
+                className="mobile-booking-link"
+                type="button"
+                onClick={() => {
+                  setMenuOpen(false);
+                  openBooking({ segment: "executive", sourceSection: "mobile_nav" });
+                }}
+              >
+                Private Anfrage starten
+              </button>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </header>
 
       <main id="top">
@@ -1169,6 +1205,10 @@ function App() {
               className="hero-image"
               src={generatedAssetRegistry.heroFilm.fallback}
               alt="Konzeptvisual eines privaten Chalet-Rückzugsorts im Wald"
+              width={1920}
+              height={1080}
+              decoding="async"
+              fetchPriority="high"
               style={{ scale: heroScale, y: heroY }}
             />
           ) : (
@@ -1187,17 +1227,9 @@ function App() {
             </motion.video>
           )}
           <div className="hero-scrim" />
-          <motion.aside
-            className="hero-asset-slot"
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.72, duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-            aria-label="Künftiger Hero Asset Slot"
-          >
-            <span>Konzeptvisual</span>
-            <strong>RhönVillage-Konzept bei Sonnenaufgang</strong>
-            <small>Morgenlicht · Nebel · Rhönblick</small>
-          </motion.aside>
+          <span className="hero-concept-label" aria-hidden="true">
+            Konzeptvisual
+          </span>
           <motion.div className="hero-content" initial="hidden" animate="show" variants={stagger}>
             <motion.p className="eyebrow" variants={reveal}>
               Neue Premium-Submarke · Charles-Suiten · RhönVillage in Planung
@@ -1308,7 +1340,6 @@ function App() {
                         className="strategy-layer"
                         key={layer.title}
                         variants={reveal}
-                        whileHover={{ y: -8 }}
                       >
                         <div className="strategy-layer-head">
                           <span>{layer.number}</span>
@@ -1340,6 +1371,7 @@ function App() {
                   src={generatedAssetRegistry.outdoorPoolFilm.fallback}
                   alt="Sonniger Outdoor-Infinitypool mit Rhönblick als Teil der Rhön Park Luxury Line"
                   loading="lazy"
+                  decoding="async"
                 />
               ) : (
                 <video
@@ -1377,7 +1409,6 @@ function App() {
                     className="promise-card moment-card"
                     key={item.title}
                     variants={reveal}
-                    whileHover={{ y: -8 }}
                   >
                     <span className="moment-step">{item.step}</span>
                     <Icon size={26} aria-hidden="true" />
@@ -1402,14 +1433,16 @@ function App() {
           </Reveal>
 
           <div className="product-showcase">
-            <div className="product-tabs" role="tablist" aria-label="Produktwelt wählen">
+            <div className="product-tabs tab-bar" role="tablist" aria-label="Produktwelt wählen">
               {stayOptions.map((option) => (
                 <button
                   key={option.detailId}
+                  id={`stay-tab-${option.detailId}`}
                   className={activeStayId === option.detailId ? "active" : ""}
                   type="button"
                   role="tab"
                   aria-selected={activeStayId === option.detailId}
+                  aria-controls={`stay-panel-${option.detailId}`}
                   onClick={() => setActiveStayId(option.detailId)}
                 >
                   <span>{option.label}</span>
@@ -1423,6 +1456,9 @@ function App() {
               <motion.article
                 className="product-spotlight"
                 key={activeStay.detailId}
+                role="tabpanel"
+                id={`stay-panel-${activeStay.detailId}`}
+                aria-labelledby={`stay-tab-${activeStay.detailId}`}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -18 }}
@@ -1446,6 +1482,9 @@ function App() {
                       src={activeStay.image}
                       alt={`${activeStay.title} der Rhön Park Luxury Line`}
                       loading="lazy"
+                      decoding="async"
+                      width={1365}
+                      height={1024}
                     />
                   )}
                   <span>{activeStay.featured ? "Konzeptvorschau" : activeStay.label}</span>
@@ -1565,18 +1604,20 @@ function App() {
 
           <div className="culinary-stage">
             <div
-              className="culinary-tabs"
+              className="culinary-tabs tab-bar"
               role="tablist"
               aria-label="Kulinarische Progression wählen"
             >
               {culinarySteps.map((step) => (
                 <button
                   key={step.id}
+                  id={`culinary-tab-${step.id}`}
                   className={activeCulinaryId === step.id ? "active" : ""}
                   data-culinary-step={step.id}
                   type="button"
                   role="tab"
                   aria-selected={activeCulinaryId === step.id}
+                  aria-controls={`culinary-panel-${step.id}`}
                   onClick={() => setActiveCulinaryId(step.id)}
                 >
                   <span>{step.label}</span>
@@ -1589,6 +1630,9 @@ function App() {
             <motion.article
               className="culinary-panel"
               key={activeCulinary.id}
+              role="tabpanel"
+              id={`culinary-panel-${activeCulinary.id}`}
+              aria-labelledby={`culinary-tab-${activeCulinary.id}`}
               initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -1673,15 +1717,17 @@ function App() {
               </p>
             </Reveal>
 
-            <div className="journey-tabs" role="tablist" aria-label="Journey wählen">
+            <div className="journey-tabs tab-bar" role="tablist" aria-label="Journey wählen">
               {Object.entries(journeyTracks).map(([key, track]) => (
                 <button
                   key={key}
+                  id={`journey-tab-${key}`}
                   className={journey === key ? "active" : ""}
                   type="button"
-                  onClick={() => setJourney(key)}
                   role="tab"
                   aria-selected={journey === key}
+                  aria-controls={`journey-panel-${key}`}
+                  onClick={() => setJourney(key)}
                 >
                   {track.nav}
                 </button>
@@ -1692,6 +1738,9 @@ function App() {
               <motion.article
                 className="journey-panel"
                 key={journey}
+                role="tabpanel"
+                id={`journey-panel-${journey}`}
+                aria-labelledby={`journey-tab-${journey}`}
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -18 }}
@@ -1729,14 +1778,16 @@ function App() {
                     <ArrowRight size={18} />
                   </button>
                 </div>
-                <motion.div
+                <div
                   className="journey-media"
-                  whileHover={shouldReduceMotion ? undefined : { y: -6 }}
                 >
                   <motion.img
                     src={activeJourney.image}
                     alt={`${activeJourney.nav} der Rhön Park Luxury Line`}
                     loading="lazy"
+                    decoding="async"
+                    width={2048}
+                    height={1365}
                     style={{ y: journeyImageY, scale: journeyImageScale }}
                   />
                   {journey === "meeting" && (
@@ -1766,7 +1817,7 @@ function App() {
                       </button>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               </motion.article>
             </AnimatePresence>
           </div>
@@ -1801,6 +1852,9 @@ function App() {
               src={generatedAssetRegistry.signatureDiningFilm.fallback}
               alt="Privater Signature-Dining-Moment als Symbol für kuratierte Luxury-Line-Anfragen"
               loading="lazy"
+              decoding="async"
+              width={1920}
+              height={1080}
             />
           </Reveal>
         </section>
@@ -1840,7 +1894,7 @@ function App() {
           >
             <label>
               Segment
-              <select defaultValue="Executive Retreat">
+              <select name="segment" autoComplete="off" defaultValue="Executive Retreat">
                 <option>Executive Retreat</option>
                 <option>Normaler Familienurlaub</option>
                 <option>Premium Family Residence</option>
@@ -1849,15 +1903,25 @@ function App() {
             </label>
             <label>
               Zeitraum
-              <input type="text" placeholder="z. B. September 2026" />
+              <input
+                type="text"
+                name="period"
+                autoComplete="off"
+                placeholder="z. B. September 2026"
+              />
             </label>
             <label>
               Gäste / Teilnehmer
-              <input type="text" placeholder="z. B. 120 Personen" />
+              <input
+                type="text"
+                name="guests"
+                autoComplete="off"
+                placeholder="z. B. 120 Personen"
+              />
             </label>
             <label>
               Unterkunft
-              <select defaultValue="Charles-Suite">
+              <select name="accommodation" autoComplete="off" defaultValue="Charles-Suite">
                 <option>Charles-Suite</option>
                 <option>Familienzimmer / Apartment</option>
                 <option>Premium Apartment</option>
@@ -1867,7 +1931,11 @@ function App() {
             </label>
             <label className="full">
               Wunsch
-              <textarea placeholder="Kurze Beschreibung des Aufenthalts, der Gruppe oder des gewünschten Niveaus" />
+              <textarea
+                name="message"
+                autoComplete="off"
+                placeholder="Kurze Beschreibung des Aufenthalts, der Gruppe oder des gewünschten Niveaus"
+              />
             </label>
             <button className="button primary form-button" type="submit">
               Private Anfrage starten
