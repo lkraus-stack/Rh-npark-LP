@@ -9,7 +9,6 @@ import {
   Bath,
   Building2,
   CalendarDays,
-  Check,
   ChevronRight,
   Compass,
   ConciergeBell,
@@ -22,35 +21,28 @@ import {
   Moon,
   Mountain,
   Phone,
-  Sparkles,
-  TreePine,
   UsersRound,
   Utensils,
-  Waves
+  Waves,
 } from "lucide-react";
 import "./theme/rhoenpark-theme.css";
 import "@franco/booking-ui/styles.css";
 import "./styles.css";
 
 const images = {
-  hero:
-    "https://images.unsplash.com/photo-1755795922314-a74332360877?auto=format&fit=crop&w=2400&q=86",
   suite:
     "https://www.rhoen-park-hotel.de/wp-content/uploads/2023/06/RPH_Family_Suite_Deluxe_72dpi_2.jpg",
   apartment:
     "https://www.rhoen-park-hotel.de/wp-content/uploads/2022/01/Rhoen-Park-Hotel-Apartment-Deluxe-Wohn-und-Schlafzimmer-72dpi-2048x1365.jpg",
   family:
     "https://www.rhoen-park-hotel.de/wp-content/uploads/2026/05/RPH_Familien_Komfort_Apartment_300dpi_3.jpg",
-  chalet:
-    "https://images.unsplash.com/photo-1755795922314-a74332360877?auto=format&fit=crop&w=1800&q=82",
-  dining:
-    "https://www.rhoen-park-hotel.de/wp-content/uploads/2024/11/RPH-24_DSC_3667_CT_72dpi.jpg",
+  dining: "https://www.rhoen-park-hotel.de/wp-content/uploads/2024/11/RPH-24_DSC_3667_CT_72dpi.jpg",
   meetingRoom:
     "https://www.rhoen-park-hotel.de/wp-content/uploads/2022/08/RPH_Tagungsraum_Milseburg.jpg",
   roomRotherKuppe:
     "https://www.rhoen-park-hotel.de/wp-content/uploads/2021/08/Bildschirmfoto-2021-08-31-um-13.04.16.jpg",
   roomKreuzberg:
-    "https://www.rhoen-park-hotel.de/wp-content/uploads/2021/08/Bildschirmfoto-2021-08-31-um-13.19.03.jpg"
+    "https://www.rhoen-park-hotel.de/wp-content/uploads/2021/08/Bildschirmfoto-2021-08-31-um-13.19.03.jpg",
 };
 
 const generatedAssetRegistry = {
@@ -59,91 +51,111 @@ const generatedAssetRegistry = {
     manifestPath: "/generated/asset-manifest.json",
     fallback: "/images/concepts/luxury-line-hero-poster.png",
     alt: "Cinematische Drohnenaufnahme über die Rhön mit Resort-Konzept im Morgenlicht",
-    metaDescription: "Hero-Video für die Luxury Line: Rhön-Landschaft, Morgenlicht, Nebel und ruhige Resort-Premiumstimmung.",
+    metaDescription:
+      "Hero-Video für die Luxury Line: Rhön-Landschaft, Morgenlicht, Nebel und ruhige Resort-Premiumstimmung.",
     bestFor: ["Hero", "Luxury-Line-Einstieg", "Rhön-Natur"],
     avoidFor: ["Kulinarik", "Innenraum", "Wellness-Detail"],
-    status: "AI-Konzeptvideo, lokal optimiert"
+    status: "AI-Konzeptvideo, lokal optimiert",
   },
   chaletStill: {
     publicUrl: "/images/concepts/private-chalet-village.jpg",
     manifestPath: "/generated/asset-manifest.json",
-    fallback: images.chalet,
+    fallback: "/images/concepts/private-chalet-village.jpg",
     alt: "Konzeptbild für geplante private Chalets in der Rhön-Landschaft",
-    metaDescription: "Vorbereiteter Konzeptpfad für RhönVillage und Private Chalets; nur für Zukunftsvisionen nutzen.",
+    metaDescription:
+      "Konzeptmotiv für RhönVillage: private Chalets, Morgennebel, Waldhänge und ruhige Rhön-Natur.",
     bestFor: ["Private Chalets", "RhönVillage", "Zukunftsvision"],
     avoidFor: ["bestehende Zimmer", "operative Ist-Zustände"],
-    status: "Konzeptvorschau, lokaler Zielpfad vorbereitet"
+    status: "AI-Konzeptbild, lokal optimiert",
   },
   wellnessStill: {
     publicUrl: "/images/concepts/priority-wellness.jpg",
     manifestPath: "/generated/asset-manifest.json",
     fallback: "/images/concepts/spa-infinity-pool-poster.png",
     alt: "Konzeptmotiv für ruhige Wellness-Atmosphäre",
-    metaDescription: "Prompt-ready Wellnessmotiv für Pool, Sauna oder Ruhebereich; noch nicht lokal generiert.",
+    metaDescription:
+      "Prompt-ready Wellnessmotiv für Pool, Sauna oder Ruhebereich; noch nicht lokal generiert.",
     bestFor: ["Wellness", "Spa", "Ruhebereich"],
     avoidFor: ["Kulinarik", "Zimmer", "Tagung"],
-    status: "Prompt-ready, nicht generiert"
+    status: "Prompt-ready, nicht generiert",
   },
   natureFilm: {
     publicUrl: "/videos/rhoen-biosphere-sunrise.mp4",
     manifestPath: "/generated/asset-manifest.json",
     fallback: "/images/concepts/rhoen-biosphere-sunrise-poster.png",
     alt: "Drohnenflug über mistige Hügel der Rhön-Biosphäre bei Sonnenaufgang",
-    metaDescription: "Naturvideo für die Rhön-Biosphäre: Waldhügel, Morgennebel, goldene Stunde und weite Landschaft.",
+    metaDescription:
+      "Naturvideo für die Rhön-Biosphäre: Waldhügel, Morgennebel, goldene Stunde und weite Landschaft.",
     bestFor: ["Rhön-Natur", "Biosphäre", "Weitblick"],
     avoidFor: ["Hotelprodukt", "Kulinarik", "Innenraum"],
-    status: "AI-Naturvideo, lokal optimiert"
+    status: "AI-Naturvideo, lokal optimiert",
   },
   spaFilm: {
     publicUrl: "/videos/spa-infinity-pool.mp4",
     manifestPath: "/generated/asset-manifest.json",
     fallback: "/images/concepts/spa-infinity-pool-poster.png",
     alt: "Ruhiger Indoor-Infinitypool mit warmem Licht und Waldblick",
-    metaDescription: "Wellnessvideo für Spa-Erlebnis: stilles Wasser, Dampf, Abendlicht und ruhige Luxus-Atmosphäre.",
+    metaDescription:
+      "Wellnessvideo für Spa-Erlebnis: stilles Wasser, Dampf, Abendlicht und ruhige Luxus-Atmosphäre.",
     bestFor: ["Wellness", "Pool", "Luxury-Line-Erlebnis"],
     avoidFor: ["Kulinarik", "Frühstück", "Tagung"],
-    status: "AI-Wellnessvideo, lokal optimiert"
+    status: "AI-Wellnessvideo, lokal optimiert",
+  },
+  outdoorPoolFilm: {
+    publicUrl: "/videos/outdoor-infinity-pool-rhoen.mp4",
+    manifestPath: "/generated/asset-manifest.json",
+    fallback: "/images/concepts/outdoor-infinity-pool-rhoen-poster.png",
+    alt: "Sonniger Outdoor-Infinitypool mit Blick auf grüne Rhön-Hügel",
+    metaDescription:
+      "Outdoor-Wellnessclip für sonnige Pool- und Rhönblick-Inhalte: klares Wasser, warme Tagesstimmung und grüne Hügellandschaft.",
+    bestFor: ["Outdoor-Pool", "Wellness", "Rhönblick", "Sommer"],
+    avoidFor: ["Indoor-Spa", "Kulinarik", "Frühstück", "Tagung"],
+    status: "AI-Wellnessvideo, lokal optimiert",
   },
   suiteFilm: {
     publicUrl: "/videos/suite-forest-view.mp4",
     manifestPath: "/generated/asset-manifest.json",
     fallback: "/images/concepts/suite-forest-view-poster.png",
     alt: "Langsame Kamerafahrt durch eine elegante Suite mit Rhön-Waldblick",
-    metaDescription: "Suitenvideo für Charles-Suiten: Holz, Leinen, Tageslicht, Wald- und Hügelblick.",
+    metaDescription:
+      "Suitenvideo für Charles-Suiten: Holz, Leinen, Tageslicht, Wald- und Hügelblick.",
     bestFor: ["Charles-Suiten", "Suite", "Premium-Aufenthalt"],
     avoidFor: ["Kulinarik", "Wellness", "Natur-only"],
-    status: "AI-Suitenvideo, lokal optimiert"
+    status: "AI-Suitenvideo, lokal optimiert",
   },
   breakfastFilm: {
     publicUrl: "/videos/breakfast-suite-morning.mp4",
     manifestPath: "/generated/asset-manifest.json",
     fallback: "/images/concepts/breakfast-suite-morning-poster.png",
     alt: "Suiten-Frühstück mit Kaffee, Brot, Ei und Beeren im sanften Morgenlicht",
-    metaDescription: "Frühstücksclip für den Morgen-Tab: helles Tageslicht, ruhiger Tisch, Kaffee, Brot, Eier und regionale Frische.",
+    metaDescription:
+      "Frühstücksclip für den Morgen-Tab: helles Tageslicht, ruhiger Tisch, Kaffee, Brot, Eier und regionale Frische.",
     bestFor: ["Frische am Morgen", "Suiten-Frühstück", "Morgenmoment"],
     avoidFor: ["A-la-carte am Abend", "Signature Dinner", "Candlelight"],
-    status: "AI-Frühstücksvideo, lokal optimiert"
+    status: "AI-Frühstücksvideo, lokal optimiert",
   },
   diningFilm: {
     publicUrl: "/videos/dining-signature-dish.mp4",
     manifestPath: "/generated/asset-manifest.json",
     fallback: "/images/concepts/dining-signature-dish-poster.png",
     alt: "Fein angerichtetes A-la-carte-Gericht bei warmem Abendlicht",
-    metaDescription: "Dinnerclip für A-la-carte am Abend: warmes Licht, Tellergericht, Kerzenstimmung und Fine-Dining-Anmutung.",
+    metaDescription:
+      "Dinnerclip für A-la-carte am Abend: warmes Licht, Tellergericht, Kerzenstimmung und Fine-Dining-Anmutung.",
     bestFor: ["A-la-carte am Abend", "Dinner", "RhönEck"],
     avoidFor: ["Frische am Morgen", "Suiten-Frühstück", "Signature Dining"],
-    status: "AI-Kulinarikvideo, lokal optimiert"
+    status: "AI-Kulinarikvideo, lokal optimiert",
   },
   signatureDiningFilm: {
     publicUrl: "/videos/signature-chefs-table.mp4",
     manifestPath: "/generated/asset-manifest.json",
     fallback: "/images/concepts/signature-chefs-table-poster.png",
     alt: "Privater Signature-Dining-Moment mit Menükarte, Kristallglas und Kerzenlicht",
-    metaDescription: "Signature-Clip für Chef's Table und besondere Anlässe: privater Tisch, Menükarte, Pairing-Glas und ruhige Abenddramaturgie.",
+    metaDescription:
+      "Signature-Clip für Chef's Table und besondere Anlässe: privater Tisch, Menükarte, Pairing-Glas und ruhige Abenddramaturgie.",
     bestFor: ["Signature Dining", "Chef's Table", "besondere Anlässe"],
     avoidFor: ["Frische am Morgen", "Suiten-Frühstück", "Tageslicht-Frühstück"],
-    status: "AI-Kulinarikvideo, lokal optimiert"
-  }
+    status: "AI-Kulinarikvideo, lokal optimiert",
+  },
 };
 
 const PROPERTY_ID = "rhoenpark-luxury";
@@ -153,12 +165,12 @@ const BOOKING_STORAGE_KEY = `franco-booking-${PROPERTY_ID}-${FLOW_MODE}`;
 
 const reveal = {
   hidden: { opacity: 0, y: 34 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } }
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } },
 };
 
 const strategyLayers = [
@@ -167,46 +179,39 @@ const strategyLayers = [
     number: "01",
     title: "Resort-Basis",
     metric: "Aktivresort als Fundament",
-    text: "Das bestehende Resort bleibt die verlässliche Basis für Familien, Gruppen und Tagungen mit kurzen Wegen, Programm und Kapazität."
+    text: "Familien, Gruppen und Tagungen behalten die Resort-Stärke: Kapazität, Programm, kurze Wege.",
   },
   {
     icon: ConciergeBell,
     number: "02",
     title: "Luxus im Hotel",
     metric: "Charles-Suiten als dritte Stufe",
-    text: "Die Charles-Suiten bilden eine eigene Premiumwelt im Hauptgebäude: schneller erlebbar als Chalets, aber klar oberhalb normaler Zimmer."
+    text: "Charles-Suiten werden als eigene Premiumwelt geführt: ruhiger, persönlicher, sofort erzählbar.",
   },
   {
     icon: Gem,
     number: "03",
     title: "Private Naturresidenz",
     metric: "RhönVillage in Planung",
-    text: "Die geplanten Private Chalets werden als separierter Rückzugsort in der geschützten Rhön-Natur aufgebaut, klar als Zukunftsvision markiert."
-  }
+    text: "RhönVillage bleibt eine klare Zukunftsvision: private Rückzugsorte in der geschützten Rhön-Natur.",
+  },
 ];
 
 const strategySteps = [
-  "Charles-Suiten als eigenständiges Luxusprodukt im Hauptgebäude positionieren",
-  "Kulinarik als Voraussetzung für Premiumpreise vom ersten Kontakt an sichtbar machen",
-  "RhönVillage Chalets als zukünftige Naturresidenzen ohne Fertigstellungsclaim erzählen"
-];
-
-const meetingFacts = [
-  "Tagungsebene RhönUm bis 240 Personen",
-  "Event- und Arena-Setups bis 400 Personen",
-  "Moderne Technik, Breakout-Räume und kurze Wege",
-  "Zentrale Lage in Deutschland mit Natur-Reset in der Rhön"
+  "Charles-Suiten als eigenes Premiumprodukt führen",
+  "Kulinarik und Wellness früh als Wertanker zeigen",
+  "RhönVillage nur als klare Zukunftsvision erzählen",
 ];
 
 const roomConfigImages = [
   {
     src: images.roomRotherKuppe,
-    label: "Boardroom"
+    label: "Boardroom",
   },
   {
     src: images.roomKreuzberg,
-    label: "U-Form"
-  }
+    label: "U-Form",
+  },
 ];
 
 const promiseItems = [
@@ -214,32 +219,26 @@ const promiseItems = [
     icon: DoorOpen,
     step: "01",
     title: "Private Ankunft",
-    text: "Ruhige Orientierung, flexible Anreise und ein erster Moment, der die Premium-Schicht sofort spürbar macht."
+    text: "Ruhige Orientierung, flexible Anreise und ein erster Moment, der die Premium-Schicht sofort spürbar macht.",
   },
   {
     icon: ConciergeBell,
     step: "02",
     title: "Persönlicher Ansprechpartner",
-    text: "Ein fester Kontakt führt durch Aufenthalt, Kulinarik, ruhige Zeiten und besondere Wünsche."
+    text: "Ein fester Kontakt führt durch Aufenthalt, Kulinarik, ruhige Zeiten und besondere Wünsche.",
   },
   {
     icon: Utensils,
     step: "03",
     title: "Suiten-Frühstück",
-    text: "Rhöner Frische, A-la-carte-Momente und ein Frühstücksrahmen, der zur Suite passt."
+    text: "Rhöner Frische, A-la-carte-Momente und ein Frühstücksrahmen, der zur Suite passt.",
   },
   {
     icon: Waves,
     step: "04",
     title: "Ruhige SPA-Zeiten",
-    text: "Priorisierte Wohlfühlmomente für Gäste, die das Resort nutzen und dennoch mehr Ruhe erwarten."
+    text: "Priorisierte Wohlfühlmomente für Gäste, die das Resort nutzen und dennoch mehr Ruhe erwarten.",
   },
-  {
-    icon: Mountain,
-    step: "05",
-    title: "Rhön-Natur",
-    text: "Weite Sicht, klare Höhenluft und das Land der offenen Fernen werden Teil des Premiumversprechens."
-  }
 ];
 
 const stayOptions = [
@@ -251,9 +250,13 @@ const stayOptions = [
     subtitle: "Die neue Premiumstufe im Hauptgebäude",
     image: images.suite,
     text: "Die Charles-Suiten werden nicht als größere Zimmer erzählt, sondern als eigene Premiumwelt im Hotel: mit Naturblick, separatem Wohn-/Schlafbereich, hochwertigen Materialien und persönlicher Begleitung.",
-    facts: ["ca. 350-500 Euro/Nacht geplant", "schneller verfügbar als Chalets", "Suiten-Frühstück oder A-la-carte"],
+    facts: [
+      "ca. 350-500 Euro/Nacht geplant",
+      "schneller verfügbar als Chalets",
+      "Suiten-Frühstück oder A-la-carte",
+    ],
     rail: ["Naturblick", "Wohn-/Schlafbereich", "SPA-Priorität", "flexible Anreise"],
-    cta: "Charles-Suite anfragen"
+    cta: "Charles-Suite anfragen",
   },
   {
     detailId: "stay-apartment",
@@ -265,7 +268,7 @@ const stayOptions = [
     text: "Premium Apartments sind das großzügige Upgrade für Familien, Großeltern oder kleine Leadership-Gruppen, die das Resort nutzen und trotzdem mehr Ruhe, Wohnlichkeit und Kontrolle im Tagesablauf brauchen.",
     facts: ["Familien & Großeltern", "kleine Leadership-Gruppen", "mehr Raum im Bestand"],
     rail: ["Wohnbereich", "Balkon", "Kitchenette", "ruhigere Abläufe"],
-    cta: "Apartment-Upgrade anfragen"
+    cta: "Apartment-Upgrade anfragen",
   },
   {
     detailId: "stay-chalet",
@@ -278,35 +281,8 @@ const stayOptions = [
     facts: ["zukünftige Naturkategorie", "Terrasse & Weitblick", "klar als Konzept markiert"],
     rail: ["separiert", "private Terrasse", "Sternenhimmel", "Rhönblick"],
     cta: "RhönVillage vormerken",
-    featured: true
-  }
-];
-
-const luxuryLadder = [
-  {
-    icon: UsersRound,
-    label: "Stufe 01",
-    title: "Resort-Basis",
-    status: "verlässlich erlebbar",
-    text: "Das Aktivresort bleibt der starke Einstieg: Familienzimmer, Apartments, Programm, Pool und Tagungsflächen tragen Volumen und Vertrauen.",
-    proof: "breites Resortprodukt"
+    featured: true,
   },
-  {
-    icon: Sparkles,
-    label: "Stufe 02",
-    title: "Luxus im Hotel",
-    status: "Charles-Suiten",
-    text: "Die neue Premiumstufe im Hauptgebäude schafft sofort eine eigene Welt oberhalb der Standardzimmer: Suite, Ansprechpartner, Kulinarik und ruhigerer Ablauf.",
-    proof: "die fehlende Brücke"
-  },
-  {
-    icon: TreePine,
-    label: "Stufe 03",
-    title: "Private Naturresidenz",
-    status: "RhönVillage in Planung",
-    text: "Die geplanten Chalets werden nicht als Zimmer-Upgrade erzählt, sondern als separierter Naturaufenthalt mit Terrasse, Weitblick und stiller Nachtlandschaft.",
-    proof: "künftiger Anker"
-  }
 ];
 
 const natureSignals = [
@@ -315,29 +291,29 @@ const natureSignals = [
     icon: Leaf,
     title: "Biosphäre",
     signal: "UNESCO-Biosphärenreservat Rhön",
-    text: "Der Aufenthalt liegt im Kontext der geschützten Rhön-Natur: ruhig, weit, regional und glaubwürdig statt austauschbar."
+    text: "Der Aufenthalt liegt im Kontext der geschützten Rhön-Natur: ruhig, weit, regional und glaubwürdig statt austauschbar.",
   },
   {
     id: "air",
     icon: Waves,
     title: "Höhenluft",
     signal: "spürbar frische Rhön-Luft",
-    text: "Klare Höhenluft wird sinnlich erzählt, ohne medizinische Versprechen: morgens am Hang, nach dem Meeting, vor dem Dinner."
+    text: "Klare Höhenluft wird sinnlich erzählt, ohne medizinische Versprechen: morgens am Hang, nach dem Meeting, vor dem Dinner.",
   },
   {
     id: "view",
     icon: Compass,
     title: "Weitblick",
     signal: "Land der offenen Fernen",
-    text: "Weite Sicht und offene Landschaft geben der Luxury Line eine stille Qualität, die Stadthotels kaum nachbauen können."
+    text: "Weite Sicht und offene Landschaft geben der Luxury Line eine stille Qualität, die Stadthotels kaum nachbauen können.",
   },
   {
     id: "stars",
     icon: Moon,
     title: "Sternenpark",
     signal: "ruhige Nachtlandschaft",
-    text: "Der Sternenpark Rhön liefert den emotionalen Abendanker: leise Terrasse, dunkler Himmel, ein Aufenthalt mit Abstand."
-  }
+    text: "Der Sternenpark Rhön liefert den emotionalen Abendanker: leise Terrasse, dunkler Himmel, ein Aufenthalt mit Abstand.",
+  },
 ];
 
 const culinarySteps = [
@@ -353,11 +329,11 @@ const culinarySteps = [
     service: [
       { label: "Zeit", value: "ruhiger Morgen" },
       { label: "Ort", value: "Suite oder RhönEck" },
-      { label: "Ton", value: "hell & regional" }
+      { label: "Ton", value: "hell & regional" },
     ],
     mediaLabel: "Morning Ritual",
     mediaMeta: "Frühstück, Tageslicht, regionale Frische",
-    ctaLabel: "Frühstücksrahmen anfragen"
+    ctaLabel: "Frühstücksrahmen anfragen",
   },
   {
     id: "evening",
@@ -371,11 +347,11 @@ const culinarySteps = [
     service: [
       { label: "Zeit", value: "nach Spa oder Meeting" },
       { label: "Ort", value: "reservierter Tisch" },
-      { label: "Ton", value: "warm & ruhig" }
+      { label: "Ton", value: "warm & ruhig" },
     ],
     mediaLabel: "A-la-carte",
     mediaMeta: "Tellergericht, Kerzenlicht, Abendruhe",
-    ctaLabel: "Dinner-Moment anfragen"
+    ctaLabel: "Dinner-Moment anfragen",
   },
   {
     id: "signature",
@@ -389,12 +365,12 @@ const culinarySteps = [
     service: [
       { label: "Anlass", value: "Jubiläum & Retreat" },
       { label: "Format", value: "Chef's Table optional" },
-      { label: "Ton", value: "exklusiv & persönlich" }
+      { label: "Ton", value: "exklusiv & persönlich" },
     ],
     mediaLabel: "Signature Moment",
     mediaMeta: "privater Tisch, Pairing, Menüdramaturgie",
-    ctaLabel: "Signature Dining anfragen"
-  }
+    ctaLabel: "Signature Dining anfragen",
+  },
 ];
 
 const journeyTracks = {
@@ -403,32 +379,34 @@ const journeyTracks = {
     nav: "Tagungen",
     eyebrow: "Corporate & Tagung",
     title: "Board-Level Retreat statt Tagungsbetrieb.",
-    text:
-      "Für Unternehmen bleibt Rhön Park der zentrale Ort mit hoher Kapazität. Die Luxury Line übersetzt diese Stärke in eine ruhigere Executive-Ebene: beste Zimmer, klare Hosts, Premium-Breakouts und Abende, die wertig und persönlich geführt werden.",
+    text: "Für Unternehmen bleibt Rhön Park der zentrale Ort mit hoher Kapazität. Die Luxury Line übersetzt diese Stärke in eine ruhigere Executive-Ebene: beste Zimmer, klare Hosts, Premium-Breakouts und Abende, die wertig und persönlich geführt werden.",
     image: images.meetingRoom,
     icon: Building2,
     cta: "Retreat anfragen",
-    stats: ["RhönUm bis 240 Personen", "Event-Setups bis 400 Personen", "Breakouts & moderne Technik"],
+    stats: [
+      "RhönUm bis 240 Personen",
+      "Event-Setups bis 400 Personen",
+      "Breakouts & moderne Technik",
+    ],
     highlights: [
       "Private Ankunft für Geschäftsführung, Speaker und Key Accounts",
       "Premium Breakouts neben den großen RhönUm-Flächen",
       "Signature Dinner als wertiger, regionaler Abschluss",
-      "Natur-Reset für Konzentration, Abstand und Teamgefühl"
+      "Natur-Reset für Konzentration, Abstand und Teamgefühl",
     ],
     flow: [
       { label: "Ankunft", detailId: "flow-meeting-arrival" },
       { label: "Meeting", detailId: "flow-meeting-room" },
       { label: "Private Dinner", detailId: "flow-meeting-dinner" },
-      { label: "Rhön-Reset", detailId: "flow-meeting-reset" }
-    ]
+      { label: "Rhön-Reset", detailId: "flow-meeting-reset" },
+    ],
   },
   family: {
     bookingSegment: "family-upgrade",
     nav: "Familienurlaub",
     eyebrow: "Ferien & Familie",
     title: "Aktivresort nutzen, privat wohnen.",
-    text:
-      "Der normale Familienurlaub bleibt lebendig: Pool, Programm, Kinderangebote, viel Platz. Die Premium Family Residence richtet sich an Familien, die genau diesen Nutzen wollen, aber privater wohnen, ruhiger essen und weniger Reibung im Tagesablauf kaufen.",
+    text: "Der normale Familienurlaub bleibt lebendig: Pool, Programm, Kinderangebote, viel Platz. Die Premium Family Residence richtet sich an Familien, die genau diesen Nutzen wollen, aber privater wohnen, ruhiger essen und weniger Reibung im Tagesablauf kaufen.",
     image: images.family,
     icon: UsersRound,
     cta: "Familien-Upgrade anfragen",
@@ -437,43 +415,16 @@ const journeyTracks = {
       "Normaler Familienurlaub bleibt als breites Resortprodukt klar erkennbar",
       "Premium Family Residence mit Charles-Suite, Host und ruhigem Dining",
       "Priority Slots für Pool, Aktivprogramm und entspanntere Abläufe",
-      "Private Chalets als geplante Premium Family Residence"
+      "Private Chalets als geplante Premium Family Residence",
     ],
     flow: [
       { label: "Ankommen", detailId: "flow-family-arrival" },
       { label: "Aktivtag", detailId: "flow-family-active" },
       { label: "Private Dining", detailId: "flow-family-dining" },
-      { label: "Ruhezone", detailId: "flow-family-calm" }
-    ]
-  }
+      { label: "Ruhezone", detailId: "flow-family-calm" },
+    ],
+  },
 };
-
-const marketCards = [
-  {
-    detailId: "market-meeting",
-    bookingSegment: "executive",
-    icon: Building2,
-    title: "Tagungen & Executive Retreats",
-    text: "Als zentraler Corporate-Rückzugsort mit großer Resort-Sicherheit und privater Führungsebene.",
-    points: ["Retreat-Rahmen", "Entscheiderkomfort", "hochwertiger Aufenthaltsrahmen"]
-  },
-  {
-    detailId: "market-family",
-    bookingSegment: "family",
-    icon: UsersRound,
-    title: "Normaler Familienurlaub",
-    text: "Das bestehende Aktivresort bleibt breit, klar und familiennah. Es trägt Volumen und Verlässlichkeit, ohne künstlich luxuriös wirken zu müssen.",
-    points: ["Ferienprogramm", "Pool & Aktivitäten", "Familienzimmer"]
-  },
-  {
-    detailId: "market-luxury-family",
-    bookingSegment: "family-upgrade",
-    icon: Gem,
-    title: "Premium Family Residence",
-    text: "Für Familien mit höherem Anspruch entsteht ein separates Upgrade-Angebot: mehr Ruhe, bessere Zimmer, Priority-Momente und Host-Service.",
-    points: ["Suiten & Chalets", "Private Dining", "weniger Reibung"]
-  }
-];
 
 const detailPages = {
   "market-meeting": {
@@ -482,15 +433,20 @@ const detailPages = {
     image: images.meetingRoom,
     intro:
       "Für Unternehmen wird Rhön Park als zentrale, verlässliche Tagungsadresse inszeniert. Die Luxury Line ergänzt das um Privatsphäre, bessere Räume und einen Ablauf, der Geschäftsführung, Speaker und Gäste spürbar entlastet.",
-    facts: ["RhönUm bis 240 Personen", "Event-Setups bis 400 Personen", "Breakout-Räume", "Zentrale Lage"],
+    facts: [
+      "RhönUm bis 240 Personen",
+      "Event-Setups bis 400 Personen",
+      "Breakout-Räume",
+      "Zentrale Lage",
+    ],
     benefits: [
       "Private Ankunft und Speaker-Betreuung",
       "Premium-Zimmer als klare Erweiterung zum Tagungspaket",
       "Signature Dinner mit regionalem Genussrahmen",
-      "Naturmodule als Ruhe- und Konzentrationsmoment"
+      "Naturmodule als Ruhe- und Konzentrationsmoment",
     ],
     bookingSegment: "executive",
-    accommodation: "Charles-Suite"
+    accommodation: "Charles-Suite",
   },
   "market-family": {
     eyebrow: "Resort-Familienurlaub",
@@ -503,10 +459,10 @@ const detailPages = {
       "Keine Verwässerung der Luxury-Line-Positionierung",
       "Einfach verständlicher Einstieg für Familien",
       "Aktivresort bleibt als Hauptnutzen sichtbar",
-      "Upgrade-Pfad bleibt jederzeit anschlussfähig"
+      "Upgrade-Pfad bleibt jederzeit anschlussfähig",
     ],
     bookingSegment: "family",
-    accommodation: "Familienzimmer / Apartment"
+    accommodation: "Familienzimmer / Apartment",
   },
   "market-luxury-family": {
     eyebrow: "Premium Family Residence",
@@ -519,10 +475,10 @@ const detailPages = {
       "Premium-Erweiterung ohne das Familienresort zu verlassen",
       "Bessere Zimmer als sofort verständlicher Premiumwert",
       "Reservierte Genussmomente mit mehr Ruhe im Tagesablauf",
-      "Chalets als nächster emotionaler Schritt"
+      "Chalets als nächster emotionaler Schritt",
     ],
     bookingSegment: "family-upgrade",
-    accommodation: "Premium Apartment"
+    accommodation: "Premium Apartment",
   },
   "stay-charles-suite": {
     eyebrow: "Charles-Suiten",
@@ -535,10 +491,10 @@ const detailPages = {
       "Separater Wohn- und Schlafbereich als spürbarer Premiumwert",
       "Persönlicher Ansprechpartner für Anreise, Genussmomente und ruhige Zeiten",
       "A-la-carte-Frühstück oder Suiten-Frühstück als glaubwürdiger Preisanker",
-      "SPA-Priorität und flexible Anreise als eigener Leistungsrahmen"
+      "SPA-Priorität und flexible Anreise als eigener Leistungsrahmen",
     ],
     bookingSegment: "executive",
-    accommodation: "Charles-Suite"
+    accommodation: "Charles-Suite",
   },
   "stay-apartment": {
     eyebrow: "Premium Apartments",
@@ -551,10 +507,10 @@ const detailPages = {
       "Mehr Raum für Familien, Großeltern oder kleine Leadership-Gruppen",
       "Gute Basis für Family-Upgrade-Pakete mit weniger Reibung",
       "Separierbare Schlaf- und Aufenthaltsbereiche",
-      "Verständlicher Mehrwert aus dem bestehenden Resort-Inventar"
+      "Verständlicher Mehrwert aus dem bestehenden Resort-Inventar",
     ],
     bookingSegment: "family-upgrade",
-    accommodation: "Premium Apartment"
+    accommodation: "Premium Apartment",
   },
   "stay-chalet": {
     eyebrow: "Private Chalets / RhönVillage",
@@ -567,10 +523,10 @@ const detailPages = {
       "Eigenständige Premium-Erzählung im Kontext der Rhön-Natur",
       "Mehr Premiumwert durch Exklusivität und Privatsphäre",
       "Sternenhimmel und Terrasse als emotionale Signale",
-      "Ideal für Familien, Retreats und längere Aufenthalte in Planung"
+      "Ideal für Familien, Retreats und längere Aufenthalte in Planung",
     ],
     bookingSegment: "chalet",
-    accommodation: "Private Chalet / RhönVillage"
+    accommodation: "Private Chalet / RhönVillage",
   },
   "flow-meeting-arrival": {
     eyebrow: "Journey Step 01",
@@ -579,9 +535,14 @@ const detailPages = {
     intro:
       "Geschäftsführung, Speaker und VIP-Gäste starten nicht an der normalen Resort-Rezeption, sondern werden sichtbar kuratiert empfangen.",
     facts: ["separater Check-in", "Speaker Briefing", "Gepäck-Handling", "Welcome Ritual"],
-    benefits: ["Ruhiger erster Eindruck", "Weniger Wartezeit", "Besserer Auftakt für Entscheider", "Direkter Übergang zum Meeting"],
+    benefits: [
+      "Ruhiger erster Eindruck",
+      "Weniger Wartezeit",
+      "Besserer Auftakt für Entscheider",
+      "Direkter Übergang zum Meeting",
+    ],
     bookingSegment: "executive",
-    accommodation: "Charles-Suite"
+    accommodation: "Charles-Suite",
   },
   "flow-meeting-room": {
     eyebrow: "Journey Step 02",
@@ -590,9 +551,14 @@ const detailPages = {
     intro:
       "RhönUm und Eventflächen bleiben die operative Basis. Die Luxury Line ergänzt Premium-Breakouts, bessere Pausenmomente und Host-geführte Abläufe.",
     facts: ["RhönUm bis 240", "Event bis 400", "Breakouts", "moderne Technik"],
-    benefits: ["Klare Agenda-Führung", "Ruhigere Breakout-Zonen", "Premium-Catering-Pausen", "Weniger Reibung für Organizer"],
+    benefits: [
+      "Klare Agenda-Führung",
+      "Ruhigere Breakout-Zonen",
+      "Premium-Catering-Pausen",
+      "Weniger Reibung für Organizer",
+    ],
     bookingSegment: "executive",
-    accommodation: "Charles-Suite"
+    accommodation: "Charles-Suite",
   },
   "flow-meeting-dinner": {
     eyebrow: "Journey Step 03",
@@ -601,20 +567,30 @@ const detailPages = {
     intro:
       "Der Abend wird als gesetzter Signature-Moment mit regionalem Menü, ruhigem Service und wertigem Rhythmus erzählt.",
     facts: ["Private Dining", "regionale Menüs", "ruhige Zeiten", "Host-Koordination"],
-    benefits: ["Mehr Wertigkeit im Paket", "Besserer Sales-Hebel", "Stärkerer Abschluss des Tages", "Geeignet für Geschäftsführung und Teams"],
+    benefits: [
+      "Mehr Wertigkeit im Paket",
+      "Besserer Sales-Hebel",
+      "Stärkerer Abschluss des Tages",
+      "Geeignet für Geschäftsführung und Teams",
+    ],
     bookingSegment: "executive",
-    accommodation: "Charles-Suite"
+    accommodation: "Charles-Suite",
   },
   "flow-meeting-reset": {
     eyebrow: "Journey Step 04",
     title: "Rhön-Reset übersetzt die Landschaft in Konzentration.",
-    image: images.hero,
+    image: generatedAssetRegistry.natureFilm.fallback,
     intro:
       "Natur wird nicht nur Kulisse, sondern Teil der Retreat-Logik: kurze Wege nach draußen, geführte Reset-Momente und Raum für echte Ruhe.",
     facts: ["UNESCO-Biosphärenreservat Rhön", "kurze Naturwege", "Team-Reset", "ruhige Slots"],
-    benefits: ["Differenzierung gegenüber Stadthotels", "Besserer mentaler Ausgleich", "Stärkerer Erinnerungswert", "Passend für Leadership-Formate"],
+    benefits: [
+      "Differenzierung gegenüber Stadthotels",
+      "Besserer mentaler Ausgleich",
+      "Stärkerer Erinnerungswert",
+      "Passend für Leadership-Formate",
+    ],
     bookingSegment: "executive",
-    accommodation: "Charles-Suite"
+    accommodation: "Charles-Suite",
   },
   "flow-family-arrival": {
     eyebrow: "Familien-Step 01",
@@ -623,9 +599,14 @@ const detailPages = {
     intro:
       "Familien kaufen Entlastung. Die Luxury Line kann Wartezeiten reduzieren und Orientierung geben, bevor Pool, Programm und Resort starten.",
     facts: ["Familien-Welcome", "Zimmer-Priorität", "Programm-Überblick", "Host-Hilfe"],
-    benefits: ["Weniger Stress bei Anreise", "Schneller Überblick", "Bessere Familienzufriedenheit", "Upgrade sofort spürbar"],
+    benefits: [
+      "Weniger Stress bei Anreise",
+      "Schneller Überblick",
+      "Bessere Familienzufriedenheit",
+      "Upgrade sofort spürbar",
+    ],
     bookingSegment: "family-upgrade",
-    accommodation: "Premium Apartment"
+    accommodation: "Premium Apartment",
   },
   "flow-family-active": {
     eyebrow: "Familien-Step 02",
@@ -634,9 +615,14 @@ const detailPages = {
     intro:
       "Der normale Familienurlaub bleibt aktiv und lebendig. Premium-Familien bekommen bessere Zeitslots, weniger Reibung und klare Empfehlungen.",
     facts: ["Pool", "Aktivprogramm", "Kinderangebote", "Priority Slots"],
-    benefits: ["Aktivresort bleibt Hauptnutzen", "Weniger Planungsstress", "Bessere Tagesrhythmen", "Mehr wahrgenommene Exklusivität"],
+    benefits: [
+      "Aktivresort bleibt Hauptnutzen",
+      "Weniger Planungsstress",
+      "Bessere Tagesrhythmen",
+      "Mehr wahrgenommene Exklusivität",
+    ],
     bookingSegment: "family-upgrade",
-    accommodation: "Premium Apartment"
+    accommodation: "Premium Apartment",
   },
   "flow-family-dining": {
     eyebrow: "Familien-Step 03",
@@ -645,9 +631,14 @@ const detailPages = {
     intro:
       "Familien mit höherem Budget suchen nicht immer mehr Programm, sondern bessere Pausen. Ruhigere Dining-Momente werden zum starken Upgrade-Hebel.",
     facts: ["ruhige Zeiten", "Familienmenü", "reservierte Plätze", "Host-Abstimmung"],
-    benefits: ["Mehr Ruhe beim Abendessen", "Besserer Abendabschluss", "Eltern spüren Premiumwert", "Kinder bleiben trotzdem eingebunden"],
+    benefits: [
+      "Mehr Ruhe beim Abendessen",
+      "Besserer Abendabschluss",
+      "Eltern spüren Premiumwert",
+      "Kinder bleiben trotzdem eingebunden",
+    ],
     bookingSegment: "family-upgrade",
-    accommodation: "Premium Apartment"
+    accommodation: "Premium Apartment",
   },
   "flow-family-calm": {
     eyebrow: "Familien-Step 04",
@@ -656,10 +647,15 @@ const detailPages = {
     intro:
       "Die Luxury Line muss nicht lauter sein. Sie gewinnt, wenn Familien den vollen Resortnutzen bekommen und trotzdem einen privaten Rückzugsort haben.",
     facts: ["Rückzugsbereich", "Suiten", "RhönVillage", "Wellness Slots"],
-    benefits: ["Mehr Privatsphäre", "Besserer Schlaf- und Tagesrhythmus", "Premiumgefühl ohne Distanz zum Resort", "Starker Chalet-Vorgeschmack"],
+    benefits: [
+      "Mehr Privatsphäre",
+      "Besserer Schlaf- und Tagesrhythmus",
+      "Premiumgefühl ohne Distanz zum Resort",
+      "Starker Chalet-Vorgeschmack",
+    ],
     bookingSegment: "chalet",
-    accommodation: "Private Chalet / RhönVillage"
-  }
+    accommodation: "Private Chalet / RhönVillage",
+  },
 };
 
 const bookingSegments = [
@@ -671,7 +667,7 @@ const bookingSegments = [
     guests: "120 Personen",
     occasion: "Tagung / Executive Retreat",
     accommodation: "Charles-Suite",
-    privileges: ["Private Ankunft", "Persönlicher Ansprechpartner", "Signature Dinner"]
+    privileges: ["Private Ankunft", "Persönlicher Ansprechpartner", "Signature Dinner"],
   },
   {
     id: "family",
@@ -681,7 +677,7 @@ const bookingSegments = [
     guests: "4 Personen",
     occasion: "Familienurlaub",
     accommodation: "Familienzimmer / Apartment",
-    privileges: ["Pool & Aktiv", "Familienprogramm"]
+    privileges: ["Pool & Aktiv", "Familienprogramm"],
   },
   {
     id: "family-upgrade",
@@ -691,7 +687,7 @@ const bookingSegments = [
     guests: "4 Personen",
     occasion: "Premium Family Residence",
     accommodation: "Premium Apartment",
-    privileges: ["Ruhige SPA-Zeiten", "Persönlicher Ansprechpartner", "Suiten-Frühstück"]
+    privileges: ["Ruhige SPA-Zeiten", "Persönlicher Ansprechpartner", "Suiten-Frühstück"],
   },
   {
     id: "chalet",
@@ -701,8 +697,8 @@ const bookingSegments = [
     guests: "2-6 Personen",
     occasion: "Private Chalet / RhönVillage",
     accommodation: "Private Chalet / RhönVillage",
-    privileges: ["Private Ankunft", "Ruhige SPA-Zeiten", "Private Terrasse"]
-  }
+    privileges: ["Private Ankunft", "Ruhige SPA-Zeiten", "Private Terrasse"],
+  },
 ];
 
 const privilegeOptions = [
@@ -715,7 +711,7 @@ const privilegeOptions = [
   "Pool & Aktiv",
   "Familienprogramm",
   "Private Terrasse",
-  "Chef's Table optional"
+  "Chef's Table optional",
 ];
 
 const accommodationOptions = [
@@ -723,16 +719,21 @@ const accommodationOptions = [
   "Familienzimmer / Apartment",
   "Premium Apartment",
   "Private Chalet / RhönVillage",
-  "Individuell kuratieren"
+  "Individuell kuratieren",
 ];
 
 const accommodationAliases = {
   "Signature Suite": "Charles-Suite",
   "Deluxe Apartment": "Premium Apartment",
-  "Private Chalet": "Private Chalet / RhönVillage"
+  "Private Chalet": "Private Chalet / RhönVillage",
 };
 
-const bookingStepLabels = ["Anlass", "Zeitraum und Gäste", "Unterkunft und Privilegien", "Zusammenfassung"];
+const bookingStepLabels = [
+  "Anlass",
+  "Zeitraum und Gäste",
+  "Unterkunft und Privilegien",
+  "Zusammenfassung",
+];
 
 const initialBookingData = {
   segment: "executive",
@@ -740,7 +741,7 @@ const initialBookingData = {
   guests: "120 Personen",
   occasion: "Tagung / Executive Retreat",
   accommodation: "Charles-Suite",
-  privileges: ["Private Ankunft", "Persönlicher Ansprechpartner", "Signature Dinner"]
+  privileges: ["Private Ankunft", "Persönlicher Ansprechpartner", "Signature Dinner"],
 };
 
 const segmentAliases = {
@@ -753,7 +754,7 @@ const segmentAliases = {
   premium: "family-upgrade",
   chalet: "chalet",
   rhoenvillage: "chalet",
-  "rhönvillage": "chalet"
+  rhönvillage: "chalet",
 };
 
 const roomPresets = {
@@ -764,7 +765,7 @@ const roomPresets = {
   "private-chalet": { segment: "chalet", accommodation: "Private Chalet / RhönVillage" },
   chalet: { segment: "chalet", accommodation: "Private Chalet / RhönVillage" },
   rhoenvillage: { segment: "chalet", accommodation: "Private Chalet / RhönVillage" },
-  "rhönvillage": { segment: "chalet", accommodation: "Private Chalet / RhönVillage" }
+  rhönvillage: { segment: "chalet", accommodation: "Private Chalet / RhönVillage" },
 };
 
 function normalizeSegment(segmentId) {
@@ -774,14 +775,15 @@ function normalizeSegment(segmentId) {
 
 function getBookingPreset(segmentId, overrides = {}) {
   const normalizedSegmentId = normalizeSegment(segmentId) || "executive";
-  const segment = bookingSegments.find((item) => item.id === normalizedSegmentId) || bookingSegments[0];
+  const segment =
+    bookingSegments.find((item) => item.id === normalizedSegmentId) || bookingSegments[0];
   return {
     segment: segment.id,
     guests: segment.guests,
     occasion: segment.occasion,
     accommodation: segment.accommodation,
     privileges: segment.privileges,
-    ...overrides
+    ...overrides,
   };
 }
 
@@ -793,15 +795,22 @@ function getStoredBookingData() {
     if (!stored) return initialBookingData;
     const parsed = JSON.parse(stored);
 
-    const accommodation = accommodationAliases[parsed.accommodation] || parsed.accommodation || initialBookingData.accommodation;
+    const accommodation =
+      accommodationAliases[parsed.accommodation] ||
+      parsed.accommodation ||
+      initialBookingData.accommodation;
     const segment = normalizeSegment(parsed.segment) || initialBookingData.segment;
 
     return {
       ...initialBookingData,
       ...parsed,
       segment,
-      accommodation: accommodationOptions.includes(accommodation) ? accommodation : initialBookingData.accommodation,
-      privileges: Array.isArray(parsed.privileges) ? parsed.privileges : initialBookingData.privileges
+      accommodation: accommodationOptions.includes(accommodation)
+        ? accommodation
+        : initialBookingData.accommodation,
+      privileges: Array.isArray(parsed.privileges)
+        ? parsed.privileges
+        : initialBookingData.privileges,
     };
   } catch {
     return initialBookingData;
@@ -822,7 +831,7 @@ function getEntryPresetFromUrl() {
 
   return getBookingPreset(segment, {
     ...(roomPreset || {}),
-    sourceSection
+    sourceSection,
   });
 }
 
@@ -835,7 +844,7 @@ function getInitialBookingData(urlPreset) {
   return {
     ...stored,
     ...presetData,
-    period: stored.period
+    period: stored.period,
   };
 }
 
@@ -846,7 +855,7 @@ function writeInquiryUrl({ segment, accommodation, sourceSection = "page" }) {
   url.searchParams.set("flow", FLOW_MODE);
   url.searchParams.set("segment", segment);
   const roomEntry = Object.entries(roomPresets).find(
-    ([, preset]) => preset.accommodation === accommodation && preset.segment === segment
+    ([, preset]) => preset.accommodation === accommodation && preset.segment === segment,
   );
   if (roomEntry) {
     url.searchParams.set("room", roomEntry[0]);
@@ -890,7 +899,7 @@ function Reveal({ children, className = "", delay = 0 }) {
 function trackBookingEvent(event, payload = {}) {
   track(event, {
     property_slug: PROPERTY_SLUG,
-    ...payload
+    ...payload,
   });
 }
 
@@ -911,19 +920,33 @@ function App() {
   const shouldReduceMotion = useReducedMotion();
   const heroScale = useTransform(scrollYProgress, [0, 0.22], [1, shouldReduceMotion ? 1 : 1.08]);
   const heroY = useTransform(scrollYProgress, [0, 0.22], [0, shouldReduceMotion ? 0 : 52]);
-  const journeyImageY = useTransform(scrollYProgress, [0.46, 0.78], [shouldReduceMotion ? 0 : -22, shouldReduceMotion ? 0 : 26]);
-  const journeyImageScale = useTransform(scrollYProgress, [0.46, 0.78], [1.04, shouldReduceMotion ? 1.04 : 1]);
+  const journeyImageY = useTransform(
+    scrollYProgress,
+    [0.46, 0.78],
+    [shouldReduceMotion ? 0 : -22, shouldReduceMotion ? 0 : 26],
+  );
+  const journeyImageScale = useTransform(
+    scrollYProgress,
+    [0.46, 0.78],
+    [1.04, shouldReduceMotion ? 1.04 : 1],
+  );
   const activeJourney = journeyTracks[journey];
   const JourneyIcon = activeJourney.icon;
-  const activeStay = stayOptions.find((option) => option.detailId === activeStayId) || stayOptions[0];
-  const activeStayVideo = activeStay.detailId === "stay-charles-suite" ? generatedAssetRegistry.suiteFilm : null;
-  const activeNature = natureSignals.find((signal) => signal.id === activeNatureId) || natureSignals[0];
+  const activeStay =
+    stayOptions.find((option) => option.detailId === activeStayId) || stayOptions[0];
+  const activeStayVideo =
+    activeStay.detailId === "stay-charles-suite" ? generatedAssetRegistry.suiteFilm : null;
+  const activeNature =
+    natureSignals.find((signal) => signal.id === activeNatureId) || natureSignals[0];
   const ActiveNatureIcon = activeNature.icon;
-  const activeCulinary = culinarySteps.find((step) => step.id === activeCulinaryId) || culinarySteps[0];
-  const activeCulinaryMedia = generatedAssetRegistry[activeCulinary.mediaKey] || generatedAssetRegistry.diningFilm;
+  const activeCulinary =
+    culinarySteps.find((step) => step.id === activeCulinaryId) || culinarySteps[0];
+  const activeCulinaryMedia =
+    generatedAssetRegistry[activeCulinary.mediaKey] || generatedAssetRegistry.diningFilm;
   const ActiveCulinaryIcon = activeCulinary.icon;
-  const activeDetailContent = activeDetail ? detailPages[activeDetail] ?? null : null;
-  const selectedBookingSegment = bookingSegments.find((segment) => segment.id === bookingData.segment) || bookingSegments[0];
+  const activeDetailContent = activeDetail ? (detailPages[activeDetail] ?? null) : null;
+  const selectedBookingSegment =
+    bookingSegments.find((segment) => segment.id === bookingData.segment) || bookingSegments[0];
   const segmentSelectorItems = bookingSegments.map((segment) => {
     const Icon = segment.icon;
 
@@ -931,7 +954,7 @@ function App() {
       id: segment.id,
       title: segment.title,
       description: segment.text,
-      icon: <Icon size={22} aria-hidden="true" />
+      icon: <Icon size={22} aria-hidden="true" />,
     };
   });
 
@@ -949,13 +972,15 @@ function App() {
     trackBookingEvent("booking_drawer_open", {
       flow: FLOW_MODE,
       segment: initialUrlPreset.segment,
-      source_section: initialUrlPreset.sourceSection || "url"
+      source_section: initialUrlPreset.sourceSection || "url",
     });
   }, [initialUrlPreset]);
 
   function openBooking(preset = {}) {
     const sourceSection = preset.sourceSection || preset.source_section || "page";
-    const nextPreset = getBookingPreset(preset.segment || preset.bookingSegment || bookingData.segment);
+    const nextPreset = getBookingPreset(
+      preset.segment || preset.bookingSegment || bookingData.segment,
+    );
     if (preset.accommodation) {
       nextPreset.accommodation = preset.accommodation;
     }
@@ -966,17 +991,17 @@ function App() {
     writeInquiryUrl({
       segment: nextPreset.segment,
       accommodation: nextPreset.accommodation,
-      sourceSection
+      sourceSection,
     });
     trackBookingEvent("booking_drawer_open", {
       flow: FLOW_MODE,
       segment: nextPreset.segment,
-      source_section: sourceSection
+      source_section: sourceSection,
     });
     setBookingData((current) => ({
       ...current,
       ...nextPreset,
-      period: current.period
+      period: current.period,
     }));
     setBookingStep(1);
     setBookingSuccess(false);
@@ -1006,10 +1031,15 @@ function App() {
   }
 
   function selectBookingSegment(segmentId) {
-    const segment = bookingSegments.find((item) => item.id === normalizeSegment(segmentId)) || bookingSegments[0];
+    const segment =
+      bookingSegments.find((item) => item.id === normalizeSegment(segmentId)) || bookingSegments[0];
     setBookingSuccess(false);
     if (bookingOpen) {
-      writeInquiryUrl({ segment: segment.id, accommodation: segment.accommodation, sourceSection: "drawer_segment" });
+      writeInquiryUrl({
+        segment: segment.id,
+        accommodation: segment.accommodation,
+        sourceSection: "drawer_segment",
+      });
     }
     setBookingData((current) => ({
       ...current,
@@ -1017,7 +1047,7 @@ function App() {
       guests: segment.guests,
       occasion: segment.occasion,
       accommodation: segment.accommodation,
-      privileges: segment.privileges
+      privileges: segment.privileges,
     }));
   }
 
@@ -1025,7 +1055,9 @@ function App() {
     const exists = bookingData.privileges.includes(privilege);
     updateBookingField(
       "privileges",
-      exists ? bookingData.privileges.filter((item) => item !== privilege) : [...bookingData.privileges, privilege]
+      exists
+        ? bookingData.privileges.filter((item) => item !== privilege)
+        : [...bookingData.privileges, privilege],
     );
   }
 
@@ -1034,7 +1066,7 @@ function App() {
     trackBookingEvent("booking_step_complete", {
       flow: FLOW_MODE,
       step_index: bookingStep,
-      step_name: bookingStepLabels[bookingStep - 1] || `Schritt ${bookingStep}`
+      step_name: bookingStepLabels[bookingStep - 1] || `Schritt ${bookingStep}`,
     });
     setBookingStep((step) => Math.min(step + 1, 4));
   }
@@ -1051,7 +1083,7 @@ function App() {
       flow: FLOW_MODE,
       inquiry_id: "inline-form-preview",
       value: 0,
-      currency: "EUR"
+      currency: "EUR",
     });
   }
 
@@ -1061,7 +1093,7 @@ function App() {
       flow: FLOW_MODE,
       inquiry_id: "drawer-preview",
       value: 0,
-      currency: "EUR"
+      currency: "EUR",
     });
   }
 
@@ -1077,13 +1109,16 @@ function App() {
         </a>
         <nav className="desktop-nav" aria-label="Seitennavigation">
           <a href="#erlebnis">Erlebnis</a>
-          <a href="#luxus-stufen">Luxus-Stufen</a>
+          <a href="#tagungen">Tagungen</a>
           <a href="#suiten-chalets">Suiten & Chalets</a>
           <a href="#biosphaere">Rhön-Natur</a>
           <a href="#kulinarik">Kulinarik</a>
-          <a href="#tagungen">Tagungen</a>
         </nav>
-        <button className="header-cta" type="button" onClick={() => openBooking({ segment: "executive", sourceSection: "header" })}>
+        <button
+          className="header-cta"
+          type="button"
+          onClick={() => openBooking({ segment: "executive", sourceSection: "header" })}
+        >
           <CalendarDays size={18} />
           Private Anfrage starten
         </button>
@@ -1101,8 +1136,8 @@ function App() {
             <a href="#erlebnis" onClick={() => setMenuOpen(false)}>
               Erlebnis
             </a>
-            <a href="#luxus-stufen" onClick={() => setMenuOpen(false)}>
-              Luxus-Stufen
+            <a href="#tagungen" onClick={() => setMenuOpen(false)}>
+              Tagungen
             </a>
             <a href="#suiten-chalets" onClick={() => setMenuOpen(false)}>
               Suiten & Chalets
@@ -1112,9 +1147,6 @@ function App() {
             </a>
             <a href="#kulinarik" onClick={() => setMenuOpen(false)}>
               Kulinarik
-            </a>
-            <a href="#tagungen" onClick={() => setMenuOpen(false)}>
-              Tagungen
             </a>
             <button
               className="mobile-booking-link"
@@ -1164,7 +1196,7 @@ function App() {
           >
             <span>Konzeptvisual</span>
             <strong>RhönVillage-Konzept bei Sonnenaufgang</strong>
-            <small>{generatedAssetRegistry.heroFilm.status}</small>
+            <small>Morgenlicht · Nebel · Rhönblick</small>
           </motion.aside>
           <motion.div className="hero-content" initial="hidden" animate="show" variants={stagger}>
             <motion.p className="eyebrow" variants={reveal}>
@@ -1174,12 +1206,17 @@ function App() {
               Rhön Park Luxury Line
             </motion.h1>
             <motion.p className="hero-copy" variants={reveal}>
-              Ein privater Luxury Layer innerhalb eines der leistungsfähigsten Resorts in der Mitte Deutschlands:
-              mit Charles-Suiten als sofort erzählbarer Premiumstufe, Rhöner Genuss als Vertrauensanker und
-              RhönVillage als künftiger Naturresidenz im UNESCO-Biosphärenreservat Rhön.
+              Ein privater Luxury Layer innerhalb eines der leistungsfähigsten Resorts in der Mitte
+              Deutschlands: mit Charles-Suiten als sofort erzählbarer Premiumstufe, Rhöner Genuss
+              als Vertrauensanker und RhönVillage als künftiger Naturresidenz im
+              UNESCO-Biosphärenreservat Rhön.
             </motion.p>
             <motion.div className="hero-actions" variants={reveal}>
-              <button className="button primary" type="button" onClick={() => openBooking({ segment: "executive", sourceSection: "hero" })}>
+              <button
+                className="button primary"
+                type="button"
+                onClick={() => openBooking({ segment: "executive", sourceSection: "hero" })}
+              >
                 Private Anfrage starten
                 <ArrowRight size={19} />
               </button>
@@ -1196,10 +1233,6 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span>
-              <small>Private Chalets</small>
-              <strong>RhönVillage als Konzeptvorschau</strong>
-            </span>
             <span>
               <small>Charles-Suiten</small>
               <strong>Luxus im Hauptgebäude</strong>
@@ -1240,9 +1273,9 @@ function App() {
               </motion.p>
               <motion.h2 variants={reveal}>Ein ruhiger Premium-Raum über dem Resort.</motion.h2>
               <motion.p variants={reveal}>
-                Rhön Park bleibt das Haus für große Gruppen, Familien und Events. Die Luxury Line nutzt diese operative
-                Sicherheit als Fundament und legt darüber eine private Schicht: weniger Wege, klarere Privilegien,
-                persönliche Betreuung und ruhige Genussmomente.
+                Rhön Park bleibt das Haus für große Gruppen, Familien und Events. Die Luxury Line
+                nutzt diese operative Sicherheit als Fundament und legt darüber eine private
+                Schicht: klare Privilegien, persönliche Betreuung und ruhige Genussmomente.
               </motion.p>
 
               <motion.div className="strategy-timeline" variants={stagger}>
@@ -1271,7 +1304,12 @@ function App() {
                   {strategyLayers.map((layer) => {
                     const Icon = layer.icon;
                     return (
-                      <motion.article className="strategy-layer" key={layer.title} variants={reveal} whileHover={{ y: -8 }}>
+                      <motion.article
+                        className="strategy-layer"
+                        key={layer.title}
+                        variants={reveal}
+                        whileHover={{ y: -8 }}
+                      >
                         <div className="strategy-layer-head">
                           <span>{layer.number}</span>
                           <Icon size={24} aria-hidden="true" />
@@ -1286,104 +1324,21 @@ function App() {
                   })}
                 </div>
               </motion.div>
-
-              <motion.aside className="strategy-facts" variants={stagger} aria-label="Tagungsfakten Rhön Park">
-                {meetingFacts.map((fact) => (
-                  <motion.span key={fact} variants={reveal}>
-                    {fact}
-                  </motion.span>
-                ))}
-              </motion.aside>
             </motion.div>
           </div>
         </section>
 
-        <section className="market-section" id="tagungen">
-          <Reveal className="section-heading">
-            <p className="eyebrow dark">Angebotsarchitektur</p>
-            <h2>Drei Produkte, damit Luxus nicht wie ein Familienhotel-Upgrade wirkt.</h2>
-          </Reveal>
-          <motion.div
-            className="market-grid"
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.18 }}
-          >
-            {marketCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                <motion.article
-                  className="market-card detail-trigger"
-                  key={card.title}
-                  variants={reveal}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`${card.title} Details öffnen`}
-                  onClick={() => openDetail(card.detailId)}
-                  onKeyDown={(event) => handleDetailKey(event, card.detailId)}
-                >
-                  <Icon size={26} aria-hidden="true" />
-                  <h3>{card.title}</h3>
-                  <p>{card.text}</p>
-                  <ul>
-                    {card.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                  <span className="card-detail-link">
-                    Details ansehen
-                    <ArrowRight size={16} />
-                  </span>
-                </motion.article>
-              );
-            })}
-          </motion.div>
-        </section>
-
-        <section className="luxury-ladder-section" id="luxus-stufen">
-          <Reveal className="section-heading center">
-            <p className="eyebrow dark">Dritte Stufe der Luxus-Linie</p>
-            <h2>Charles-Suiten sind nicht der Kompromiss. Sie sind die fehlende Premiumbrücke.</h2>
-            <p>
-              Die Luxury Line braucht eine klare Stufe zwischen Resort-Basis und künftigen Naturresidenzen. Genau dort
-              entsteht im Hauptgebäude eine eigene Premiumwelt, die schneller erlebbar ist als RhönVillage.
-            </p>
-          </Reveal>
-          <motion.div
-            className="luxury-ladder"
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.18 }}
-          >
-            {luxuryLadder.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <motion.article className={index === 1 ? "ladder-card active" : "ladder-card"} key={step.title} variants={reveal}>
-                  <span className="ladder-index">{step.label}</span>
-                  <Icon size={25} aria-hidden="true" />
-                  <small>{step.status}</small>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                  <strong>{step.proof}</strong>
-                </motion.article>
-              );
-            })}
-          </motion.div>
-        </section>
-
         <section className="promise-section luxury-experience-section">
           <Reveal className="section-heading">
-            <p className="eyebrow dark">Luxury-Line-Erlebnis</p>
-            <h2>Der Mehrpreis wird über Momente verkauft, nicht über Quadratmeter allein.</h2>
+            <p className="eyebrow dark">Wellness & Rhythmus</p>
+            <h2>Der Mehrpreis wird über Ruhe, Wasser und kuratierte Momente spürbar.</h2>
           </Reveal>
           <div className="luxury-moments">
             <Reveal className="moment-feature">
               {shouldReduceMotion ? (
                 <img
-                  src={generatedAssetRegistry.spaFilm.fallback}
-                  alt="Ruhige Wellness-Atmosphäre als Teil der Rhön Park Luxury Line"
+                  src={generatedAssetRegistry.outdoorPoolFilm.fallback}
+                  alt="Sonniger Outdoor-Infinitypool mit Rhönblick als Teil der Rhön Park Luxury Line"
                   loading="lazy"
                 />
               ) : (
@@ -1393,16 +1348,19 @@ function App() {
                   playsInline
                   loop
                   preload="none"
-                  poster={generatedAssetRegistry.spaFilm.fallback}
-                  aria-label="Cinematischer Wellnesspool mit ruhiger Abendstimmung"
+                  poster={generatedAssetRegistry.outdoorPoolFilm.fallback}
+                  aria-label="Cinematischer Outdoor-Infinitypool mit sonnigem Rhönblick"
                 >
-                  <source src={generatedAssetRegistry.spaFilm.publicUrl} type="video/mp4" />
+                  <source src={generatedAssetRegistry.outdoorPoolFilm.publicUrl} type="video/mp4" />
                 </video>
               )}
               <div className="moment-feature-card">
-                <span>Aufenthaltsbogen</span>
-                <strong>Ankunft · Ansprechpartner · Genuss · Ruhe · Rhön-Natur</strong>
-                <p>Eine buchbare Dramaturgie, die Gäste vor dem Angebotsvergleich emotional bindet.</p>
+                <span>Premium-Rhythmus</span>
+                <strong>Rhönblick, Wasser, Gastgeberkontakt und ruhige Slots</strong>
+                <p>
+                  Die Seite zeigt nicht mehr nur Kategorien, sondern den konkreten Wert eines ruhig
+                  geführten Aufenthalts.
+                </p>
               </div>
             </Reveal>
             <motion.div
@@ -1415,7 +1373,12 @@ function App() {
               {promiseItems.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <motion.article className="promise-card moment-card" key={item.title} variants={reveal} whileHover={{ y: -8 }}>
+                  <motion.article
+                    className="promise-card moment-card"
+                    key={item.title}
+                    variants={reveal}
+                    whileHover={{ y: -8 }}
+                  >
                     <span className="moment-step">{item.step}</span>
                     <Icon size={26} aria-hidden="true" />
                     <h3>{item.title}</h3>
@@ -1432,8 +1395,9 @@ function App() {
             <p className="eyebrow dark">Suiten & RhönVillage</p>
             <h2>Drei Produktwelten, drei klare Gründe für Premiumwert.</h2>
             <p>
-              Charles-Suiten, Premium Apartments und Private Chalets erfüllen unterschiedliche Aufgaben. Gemeinsam
-              machen sie sichtbar, dass Luxus hier nicht über Glanz entsteht, sondern über Raum, Ruhe, Genuss und Rhön-Natur.
+              Charles-Suiten, Premium Apartments und Private Chalets erfüllen unterschiedliche
+              Aufgaben. Gemeinsam machen sie sichtbar, dass Luxus hier nicht über Glanz entsteht,
+              sondern über Raum, Ruhe, Genuss und Rhön-Natur.
             </p>
           </Reveal>
 
@@ -1478,7 +1442,11 @@ function App() {
                       <source src={activeStayVideo.publicUrl} type="video/mp4" />
                     </video>
                   ) : (
-                    <img src={activeStay.image} alt={`${activeStay.title} der Rhön Park Luxury Line`} loading="lazy" />
+                    <img
+                      src={activeStay.image}
+                      alt={`${activeStay.title} der Rhön Park Luxury Line`}
+                      loading="lazy"
+                    />
                   )}
                   <span>{activeStay.featured ? "Konzeptvorschau" : activeStay.label}</span>
                 </div>
@@ -1486,7 +1454,10 @@ function App() {
                   <p className="eyebrow dark">{activeStay.label}</p>
                   <h3>{activeStay.title}</h3>
                   <p>{activeStay.text}</p>
-                  <div className="product-fact-rail" aria-label={`${activeStay.title} Leistungsrahmen`}>
+                  <div
+                    className="product-fact-rail"
+                    aria-label={`${activeStay.title} Leistungsrahmen`}
+                  >
                     {activeStay.rail.map((fact) => (
                       <span key={fact}>{fact}</span>
                     ))}
@@ -1499,14 +1470,18 @@ function App() {
                         openBooking({
                           segment: activeStay.bookingSegment,
                           accommodation: detailPages[activeStay.detailId]?.accommodation,
-                          sourceSection: "product_spotlight"
+                          sourceSection: "product_spotlight",
                         })
                       }
                     >
                       {activeStay.cta}
                       <ArrowRight size={18} />
                     </button>
-                    <button className="text-link" type="button" onClick={() => openDetail(activeStay.detailId)}>
+                    <button
+                      className="text-link"
+                      type="button"
+                      onClick={() => openDetail(activeStay.detailId)}
+                    >
                       Details ansehen
                       <ArrowRight size={17} />
                     </button>
@@ -1515,57 +1490,6 @@ function App() {
               </motion.article>
             </AnimatePresence>
           </div>
-
-          <motion.div
-            className="stay-grid"
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
-          >
-            {stayOptions.map((option) => (
-              <motion.article
-                className={`stay-card detail-trigger ${option.featured ? "featured" : ""}`}
-                key={option.title}
-                variants={reveal}
-                role="button"
-                tabIndex={0}
-                aria-label={`${option.title} Details öffnen`}
-                onClick={() => openDetail(option.detailId)}
-                onKeyDown={(event) => handleDetailKey(event, option.detailId)}
-              >
-                <div className="image-wrap">
-                  <img
-                    src={option.image}
-                    alt={
-                      option.featured
-                        ? "Konzeptvisual eines privaten Luxury-Line-Chalets im Wald"
-                        : `${option.title} der Rhön Park Luxury Line`
-                    }
-                    loading="lazy"
-                  />
-                  <span>{option.label}</span>
-                </div>
-                <div className="stay-body">
-                  {option.featured && <span className="stay-flagship">Konzeptvorschau</span>}
-                  <h3>{option.title}</h3>
-                  <p>{option.text}</p>
-                  <ul>
-                    {option.facts.map((fact) => (
-                      <li key={fact}>
-                        <Check size={16} />
-                        {fact}
-                      </li>
-                    ))}
-                  </ul>
-                  <span className="card-detail-link dark">
-                    Details ansehen
-                    <ArrowRight size={16} />
-                  </span>
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
         </section>
 
         <section className="nature-section" id="biosphaere">
@@ -1573,8 +1497,8 @@ function App() {
             <p className="eyebrow dark">UNESCO-Biosphärenreservat Rhön</p>
             <h2>Die Rhön ist kein Hintergrund. Sie ist der emotionale USP.</h2>
             <p>
-              Weite Sicht, klare Höhenluft, geschützte Rhön-Natur und der Sternenpark Rhön geben der Luxury Line eine
-              ruhige, zentrale und glaubwürdige Premiumqualität.
+              Weite Sicht, klare Höhenluft, geschützte Rhön-Natur und der Sternenpark Rhön geben der
+              Luxury Line eine ruhige, zentrale und glaubwürdige Premiumqualität.
             </p>
           </Reveal>
 
@@ -1633,13 +1557,18 @@ function App() {
             <p className="eyebrow dark">Kulinarik, die den Premiumpreis trägt</p>
             <h2>Vom Suiten-Frühstück bis zum Signature Dinner.</h2>
             <p>
-              Die Luxury Line verkauft keinen Standardtisch, sondern eine ruhige Genussdramaturgie: regional am Morgen,
-              reserviert am Abend, besonders inszeniert für Anlässe mit höherem Wert.
+              Die Luxury Line verkauft keinen Standardtisch, sondern eine ruhige Genussdramaturgie:
+              regional am Morgen, reserviert am Abend, besonders inszeniert für Anlässe mit höherem
+              Wert.
             </p>
           </Reveal>
 
           <div className="culinary-stage">
-            <div className="culinary-tabs" role="tablist" aria-label="Kulinarische Progression wählen">
+            <div
+              className="culinary-tabs"
+              role="tablist"
+              aria-label="Kulinarische Progression wählen"
+            >
               {culinarySteps.map((step) => (
                 <button
                   key={step.id}
@@ -1672,7 +1601,10 @@ function App() {
                 <p className="eyebrow dark">Rhöner Genuss</p>
                 <h3>{activeCulinary.title}</h3>
                 <p>{activeCulinary.text}</p>
-                <div className="culinary-service" aria-label={`${activeCulinary.title} Servicerahmen`}>
+                <div
+                  className="culinary-service"
+                  aria-label={`${activeCulinary.title} Servicerahmen`}
+                >
                   {activeCulinary.service.map((item) => (
                     <span key={item.label}>
                       <small>{item.label}</small>
@@ -1688,7 +1620,13 @@ function App() {
                 <button
                   className="button primary"
                   type="button"
-                  onClick={() => openBooking({ segment: "executive", accommodation: "Charles-Suite", sourceSection: "culinary" })}
+                  onClick={() =>
+                    openBooking({
+                      segment: "executive",
+                      accommodation: "Charles-Suite",
+                      sourceSection: "culinary",
+                    })
+                  }
                 >
                   {activeCulinary.ctaLabel}
                   <ArrowRight size={18} />
@@ -1700,7 +1638,11 @@ function App() {
                   <small>{activeCulinary.mediaMeta}</small>
                 </div>
                 {shouldReduceMotion ? (
-                  <img src={activeCulinaryMedia.fallback} alt={activeCulinaryMedia.alt} loading="lazy" />
+                  <img
+                    src={activeCulinaryMedia.fallback}
+                    alt={activeCulinaryMedia.alt}
+                    loading="lazy"
+                  />
                 ) : (
                   <video
                     key={activeCulinaryMedia.publicUrl}
@@ -1720,14 +1662,14 @@ function App() {
           </div>
         </section>
 
-        <section className="journey-section" id="familienurlaub">
+        <section className="journey-section" id="tagungen">
           <div className="journey-shell">
             <Reveal className="journey-heading">
               <p className="eyebrow">Zwei Journeys</p>
               <h2>Tagungen und Familienurlaub kaufen nicht dieselbe Form von Luxus.</h2>
               <p>
-                Die Luxury Line ist kein pauschales Premium-Etikett. Sie ist ein Anlass-System: konzentriert und
-                repräsentativ für Firmen, privat und entlastend für Familien.
+                Die Luxury Line ist kein pauschales Premium-Etikett. Sie ist ein Anlass-System:
+                konzentriert und repräsentativ für Firmen, privat und entlastend für Familien.
               </p>
             </Reveal>
 
@@ -1776,13 +1718,21 @@ function App() {
                   <button
                     className="text-link light inline-action"
                     type="button"
-                    onClick={() => openBooking({ segment: activeJourney.bookingSegment, sourceSection: `journey_${journey}` })}
+                    onClick={() =>
+                      openBooking({
+                        segment: activeJourney.bookingSegment,
+                        sourceSection: `journey_${journey}`,
+                      })
+                    }
                   >
                     {activeJourney.cta}
                     <ArrowRight size={18} />
                   </button>
                 </div>
-                <motion.div className="journey-media" whileHover={shouldReduceMotion ? undefined : { y: -6 }}>
+                <motion.div
+                  className="journey-media"
+                  whileHover={shouldReduceMotion ? undefined : { y: -6 }}
+                >
                   <motion.img
                     src={activeJourney.image}
                     alt={`${activeJourney.nav} der Rhön Park Luxury Line`}
@@ -1793,7 +1743,11 @@ function App() {
                     <div className="meeting-configs" aria-label="Meeting Config Overlays">
                       {roomConfigImages.map((config) => (
                         <span key={config.label}>
-                          <img src={config.src} alt={`RhönUm ${config.label} Konfiguration`} loading="lazy" />
+                          <img
+                            src={config.src}
+                            alt={`RhönUm ${config.label} Konfiguration`}
+                            loading="lazy"
+                          />
                           <small>{config.label}</small>
                         </span>
                       ))}
@@ -1821,11 +1775,11 @@ function App() {
         <section className="experience-band">
           <Reveal className="experience-copy">
             <p className="eyebrow">Private Concierge Logic</p>
-            <h2>Aus Anfrage wird kuratierter Aufenthalt.</h2>
+            <h2>Aus Anfrage wird ein ruhiger, hochwertiger Aufenthaltsplan.</h2>
             <p>
-              Höhere Zahlungsbereitschaft entsteht, wenn Gäste nicht selbst sortieren müssen. Der Concierge-Flow fragt
-              Anlass, Zeitraum, Gästezahl, Unterkunft und Privilegien ab und übersetzt daraus ein hochwertiges
-              Gespräch für Reservierung oder Sales.
+              Höhere Zahlungsbereitschaft entsteht, wenn Gäste nicht selbst sortieren müssen. Der
+              Concierge-Flow fragt Anlass, Zeitraum, Gästezahl, Unterkunft und Privilegien ab und
+              übersetzt daraus ein hochwertiges Gespräch für Reservierung oder Sales.
             </p>
             <div className="experience-list">
               <span>
@@ -1851,37 +1805,14 @@ function App() {
           </Reveal>
         </section>
 
-        <section className="value-section">
-          <motion.div
-            className="metric"
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <strong>1</strong>
-            <span>Submarke für höherwertige Anfragen</span>
-          </motion.div>
-          <motion.div className="metric" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}>
-            <strong>30</strong>
-            <span>geplante Chalets als künftiges Highlight</span>
-          </motion.div>
-          <motion.div className="metric" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}>
-            <strong>300</strong>
-            <span>Premium-Tagungsgäste adressierbar</span>
-          </motion.div>
-          <motion.div className="metric" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}>
-            <strong>1000+</strong>
-            <span>Resort-Kapazität als Vertrauenssignal</span>
-          </motion.div>
-        </section>
-
         <section className="inquiry-section" id="anfrage">
           <Reveal className="inquiry-copy">
             <p className="eyebrow dark">Private Anfrage</p>
             <h2>Luxury Line als kuratierte Anfrage starten.</h2>
             <p>
-              Der Einstieg führt nicht in eine Standardbuchung, sondern in ein persönliches Gespräch. So kann das Team
-              Zeitraum, Anlass, Gruppe und passende Privilegien sauber kuratieren.
+              Der Einstieg führt nicht in eine Standardbuchung, sondern in ein persönliches
+              Gespräch. So kann das Team Zeitraum, Anlass, Gruppe und passende Privilegien sauber
+              kuratieren.
             </p>
             <div className="contact-stack">
               <a href="tel:+499779910">
@@ -1951,7 +1882,8 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                 >
-                  Anfrage vorbereitet. Das Rhön Park Team kann daraus ein persönliches Angebot kuratieren.
+                  Anfrage vorbereitet. Das Rhön Park Team kann daraus ein persönliches Angebot
+                  kuratieren.
                 </motion.p>
               )}
             </AnimatePresence>
@@ -1970,7 +1902,11 @@ function App() {
         primaryActionLabel="Concierge-Anfrage öffnen"
         onPrimaryAction={(detail) => {
           setActiveDetail(null);
-          openBooking({ segment: detail.bookingSegment, accommodation: detail.accommodation, sourceSection: "detail_overlay" });
+          openBooking({
+            segment: detail.bookingSegment,
+            accommodation: detail.accommodation,
+            sourceSection: "detail_overlay",
+          });
         }}
       />
       <Drawer
@@ -1981,7 +1917,11 @@ function App() {
         closeLabel="Buchungsfenster schließen"
         footer={
           <>
-            <button className="button secondary dark" type="button" onClick={bookingStep === 1 ? closeBooking : previousBookingStep}>
+            <button
+              className="button secondary dark"
+              type="button"
+              onClick={bookingStep === 1 ? closeBooking : previousBookingStep}
+            >
               {bookingStep === 1 ? "Schließen" : "Zurück"}
             </button>
             {bookingStep < 4 ? (
@@ -2001,8 +1941,8 @@ function App() {
         <div className="booking-concierge-note">
           <span>{selectedBookingSegment.title}</span>
           <p>
-            Diese Anfrage sammelt Anlass, Aufenthaltsrahmen und Privilegien, damit das Rhön Park Team daraus ein
-            kuratiertes Angebot vorbereiten kann.
+            Diese Anfrage sammelt Anlass, Aufenthaltsrahmen und Privilegien, damit das Rhön Park
+            Team daraus ein kuratiertes Angebot vorbereiten kann.
           </p>
         </div>
         <StepIndicator current={bookingStep} total={4} labels={bookingStepLabels} />
@@ -2061,7 +2001,10 @@ function App() {
               <div className="booking-fields">
                 <label className="full">
                   Unterkunft
-                  <select value={bookingData.accommodation} onChange={(event) => updateBookingField("accommodation", event.target.value)}>
+                  <select
+                    value={bookingData.accommodation}
+                    onChange={(event) => updateBookingField("accommodation", event.target.value)}
+                  >
                     {accommodationOptions.map((option) => (
                       <option key={option}>{option}</option>
                     ))}
@@ -2087,12 +2030,18 @@ function App() {
             <section className="booking-step" aria-label="Zusammenfassung">
               <h3>Private Anfrage prüfen</h3>
               <p className="booking-premium-copy">
-                Wir bereiten daraus eine kuratierte Anfrage für das Rhön Park Team vor: mit Anlass, Zeitraum,
-                Unterkunft und den gewünschten Privilegien.
+                Wir bereiten daraus eine kuratierte Anfrage für das Rhön Park Team vor: mit Anlass,
+                Zeitraum, Unterkunft und den gewünschten Privilegien.
               </p>
               {bookingSuccess && (
-                <motion.p className="booking-success" role="status" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
-                  Anfrage vorbereitet. Das Rhön Park Team kann daraus ein persönliches Angebot ableiten.
+                <motion.p
+                  className="booking-success"
+                  role="status"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  Anfrage vorbereitet. Das Rhön Park Team kann daraus ein persönliches Angebot
+                  ableiten.
                 </motion.p>
               )}
               <div className="booking-summary">
@@ -2118,7 +2067,11 @@ function App() {
                 </span>
                 <span>
                   <small>Privilegien</small>
-                  <strong>{bookingData.privileges.length ? bookingData.privileges.join(", ") : "Individuell kuratieren"}</strong>
+                  <strong>
+                    {bookingData.privileges.length
+                      ? bookingData.privileges.join(", ")
+                      : "Individuell kuratieren"}
+                  </strong>
                 </span>
               </div>
             </section>

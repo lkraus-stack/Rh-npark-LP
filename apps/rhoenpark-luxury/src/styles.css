@@ -14,7 +14,14 @@
   --premium-shadow: 0 34px 90px rgba(15, 38, 31, 0.28);
   --hairline: rgba(198, 169, 106, 0.28);
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   font-size: 16px;
   background: var(--ivory);
 }
@@ -263,7 +270,12 @@ ul {
 
 .hero-scrim {
   background:
-    linear-gradient(90deg, rgba(13, 18, 14, 0.54) 0%, rgba(13, 18, 14, 0.32) 48%, rgba(13, 18, 14, 0.08) 100%),
+    linear-gradient(
+      90deg,
+      rgba(13, 18, 14, 0.54) 0%,
+      rgba(13, 18, 14, 0.32) 48%,
+      rgba(13, 18, 14, 0.08) 100%
+    ),
     linear-gradient(180deg, rgba(13, 18, 14, 0.08), rgba(13, 18, 14, 0.42));
 }
 
@@ -321,7 +333,11 @@ ul {
   padding: 0 22px;
   font-weight: 680;
   cursor: pointer;
-  transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
 }
 
 .button:hover {
@@ -435,8 +451,13 @@ ul {
   position: relative;
   overflow: hidden;
   color: var(--porcelain);
-  background:
-    linear-gradient(112deg, rgba(15, 38, 31, 0.98) 0%, rgba(22, 61, 50, 0.96) 54%, rgba(248, 244, 234, 0.98) 54.2%, rgba(248, 244, 234, 1) 100%);
+  background: linear-gradient(
+    112deg,
+    rgba(15, 38, 31, 0.98) 0%,
+    rgba(22, 61, 50, 0.96) 54%,
+    rgba(248, 244, 234, 0.98) 54.2%,
+    rgba(248, 244, 234, 1) 100%
+  );
 }
 
 .intro-band::before {
@@ -583,8 +604,7 @@ ul {
   border-radius: 8px;
   padding: clamp(18px, 3vw, 32px);
   background:
-    linear-gradient(145deg, rgba(255, 253, 247, 0.96), rgba(248, 244, 234, 0.86)),
-    var(--porcelain);
+    linear-gradient(145deg, rgba(255, 253, 247, 0.96), rgba(248, 244, 234, 0.86)), var(--porcelain);
   box-shadow: var(--premium-shadow);
 }
 
@@ -652,7 +672,10 @@ ul {
   padding: 22px;
   background: rgba(255, 253, 247, 0.78);
   box-shadow: 0 14px 32px rgba(22, 61, 50, 0.08);
-  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .strategy-layer::after {
@@ -749,8 +772,17 @@ ul {
 }
 
 .market-section {
-  background:
-    linear-gradient(180deg, #f0ebdf 0%, rgba(255, 253, 247, 1) 52%, rgba(248, 244, 234, 1) 100%);
+  background: linear-gradient(
+    180deg,
+    #f0ebdf 0%,
+    rgba(255, 253, 247, 1) 58%,
+    rgba(237, 240, 231, 0.96) 100%
+  );
+}
+
+.market-section .section-heading p:not(.eyebrow) {
+  max-width: 760px;
+  margin-top: 22px;
 }
 
 .market-grid {
@@ -774,10 +806,13 @@ ul {
   border: 1px solid rgba(22, 61, 50, 0.14);
   padding: 30px;
   background:
-    linear-gradient(150deg, rgba(255, 253, 247, 0.98), rgba(248, 244, 234, 0.86)),
+    linear-gradient(150deg, rgba(255, 253, 247, 0.98), rgba(238, 231, 216, 0.88)),
     rgba(255, 253, 247, 0.88);
   box-shadow: var(--soft-shadow);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
 }
 
 .detail-trigger {
@@ -858,8 +893,7 @@ ul {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 253, 247, 1), rgba(248, 244, 234, 0.94)),
-    var(--porcelain);
+    linear-gradient(180deg, rgba(255, 253, 247, 1), rgba(248, 244, 234, 0.94)), var(--porcelain);
 }
 
 .luxury-ladder-section::before {
@@ -899,8 +933,7 @@ ul {
 .ladder-card.active {
   color: var(--porcelain);
   background:
-    linear-gradient(150deg, rgba(22, 61, 50, 0.98), rgba(15, 38, 31, 0.94)),
-    var(--forest);
+    linear-gradient(150deg, rgba(22, 61, 50, 0.98), rgba(15, 38, 31, 0.94)), var(--forest);
   box-shadow: var(--premium-shadow);
   transform: translateY(-18px);
 }
@@ -950,7 +983,13 @@ ul {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, var(--porcelain), #f0ebdf 58%, rgba(237, 240, 231, 0.96)),
+    linear-gradient(
+      180deg,
+      var(--porcelain),
+      #edf0e7 56%,
+      rgba(15, 38, 31, 0.98) 56.1%,
+      var(--deep-forest) 100%
+    ),
     var(--porcelain);
 }
 
@@ -973,6 +1012,11 @@ ul {
   grid-template-columns: minmax(320px, 0.92fr) minmax(520px, 1.08fr);
   gap: clamp(24px, 5vw, 72px);
   align-items: stretch;
+}
+
+.luxury-experience-section .section-heading p,
+.luxury-experience-section .section-heading h2 {
+  max-width: 860px;
 }
 
 .moment-feature {
@@ -1076,7 +1120,10 @@ ul {
   padding: 28px;
   background: var(--porcelain);
   box-shadow: var(--soft-shadow);
-  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .promise-card:hover {
@@ -1099,8 +1146,44 @@ ul {
 }
 
 .stay-section {
+  position: relative;
+  overflow: hidden;
+  color: var(--porcelain);
+  background: linear-gradient(180deg, var(--deep-forest) 0%, #14352c 54%, #0b1d18 100%);
+}
+
+.stay-section::before {
+  position: absolute;
+  inset: 0;
+  content: "";
   background:
-    linear-gradient(180deg, #edf0e7 0%, #f8f4ea 48%, #fffdf7 100%);
+    linear-gradient(90deg, transparent 0, rgba(198, 169, 106, 0.1) 1px, transparent 1px),
+    linear-gradient(180deg, transparent 0, rgba(255, 253, 247, 0.045) 1px, transparent 1px);
+  background-size: 118px 118px;
+  mask-image: linear-gradient(180deg, transparent, black 18%, black 82%, transparent);
+  pointer-events: none;
+}
+
+.stay-section .section-heading,
+.stay-section .product-showcase {
+  position: relative;
+  z-index: 1;
+}
+
+.stay-section .section-heading h2,
+.stay-section .section-heading p:not(.eyebrow) {
+  color: var(--porcelain);
+}
+
+.stay-section .section-heading p:not(.eyebrow) {
+  color: rgba(255, 253, 247, 0.76);
+}
+
+.stay-section .eyebrow.dark,
+.market-section .eyebrow.dark,
+.promise-section .eyebrow.dark,
+.inquiry-section .eyebrow.dark {
+  color: var(--champagne);
 }
 
 .product-showcase {
@@ -1108,7 +1191,7 @@ ul {
   grid-template-columns: minmax(300px, 0.42fr) minmax(520px, 1fr);
   gap: clamp(22px, 4vw, 42px);
   max-width: 1360px;
-  margin: 0 auto 34px;
+  margin: 0 auto;
   align-items: stretch;
 }
 
@@ -1121,28 +1204,33 @@ ul {
   display: grid;
   gap: 8px;
   min-height: 142px;
-  border: 1px solid rgba(22, 61, 50, 0.12);
+  border: 1px solid rgba(255, 253, 247, 0.13);
   border-radius: 8px;
   padding: 20px;
-  color: var(--forest);
-  background: rgba(255, 253, 247, 0.78);
-  box-shadow: 0 14px 34px rgba(22, 61, 50, 0.08);
+  color: var(--porcelain);
+  background: rgba(255, 253, 247, 0.07);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   text-align: left;
-  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease, background-color 200ms ease;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease,
+    background-color 200ms ease;
 }
 
 .product-tabs button:hover,
 .product-tabs button.active {
   transform: translateY(-2px);
   border-color: rgba(198, 169, 106, 0.56);
-  background: var(--porcelain);
-  box-shadow: 0 26px 56px rgba(22, 61, 50, 0.14);
+  background: linear-gradient(135deg, rgba(255, 253, 247, 0.96), rgba(198, 169, 106, 0.88));
+  color: var(--deep-forest);
+  box-shadow: 0 26px 66px rgba(0, 0, 0, 0.3);
 }
 
 .product-tabs span,
 .product-tabs small {
-  color: var(--wine);
+  color: var(--champagne);
   font-size: 0.75rem;
   font-weight: 680;
   text-transform: uppercase;
@@ -1156,8 +1244,15 @@ ul {
 }
 
 .product-tabs small {
-  color: var(--stone);
+  color: rgba(255, 253, 247, 0.58);
   line-height: 1.4;
+}
+
+.product-tabs button.active span,
+.product-tabs button.active small,
+.product-tabs button:hover span,
+.product-tabs button:hover small {
+  color: rgba(15, 38, 31, 0.72);
 }
 
 .product-spotlight {
@@ -1165,10 +1260,10 @@ ul {
   grid-template-columns: minmax(300px, 0.95fr) minmax(360px, 1fr);
   min-height: 560px;
   overflow: hidden;
-  border: 1px solid rgba(22, 61, 50, 0.12);
+  border: 1px solid rgba(198, 169, 106, 0.3);
   border-radius: 8px;
   background: var(--porcelain);
-  box-shadow: var(--premium-shadow);
+  box-shadow: 0 38px 120px rgba(0, 0, 0, 0.36);
 }
 
 .product-visual {
@@ -1265,7 +1360,10 @@ ul {
   overflow: hidden;
   background: var(--porcelain);
   box-shadow: var(--soft-shadow);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
   border: 1px solid rgba(22, 61, 50, 0.1);
 }
 
@@ -1277,8 +1375,7 @@ ul {
 .stay-card.featured {
   border-color: rgba(198, 169, 106, 0.46);
   background:
-    linear-gradient(180deg, rgba(255, 253, 247, 0.98), rgba(248, 244, 234, 0.9)),
-    var(--porcelain);
+    linear-gradient(180deg, rgba(255, 253, 247, 0.98), rgba(248, 244, 234, 0.9)), var(--porcelain);
   box-shadow: 0 28px 76px rgba(22, 61, 50, 0.18);
 }
 
@@ -1483,7 +1580,10 @@ ul {
   background: rgba(255, 253, 247, 0.08);
   cursor: pointer;
   text-align: left;
-  transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    transform 200ms ease;
 }
 
 .nature-signal-panel button:hover,
@@ -1515,7 +1615,12 @@ ul {
   overflow: hidden;
   color: var(--porcelain);
   background:
-    linear-gradient(135deg, rgba(8, 18, 14, 0.98), rgba(15, 38, 31, 0.98) 52%, rgba(38, 21, 25, 0.96)),
+    linear-gradient(
+      135deg,
+      rgba(8, 18, 14, 0.98),
+      rgba(15, 38, 31, 0.98) 52%,
+      rgba(38, 21, 25, 0.96)
+    ),
     var(--deep-forest);
 }
 
@@ -1579,7 +1684,11 @@ ul {
   cursor: pointer;
   text-align: left;
   font-weight: 650;
-  transition: background-color 200ms ease, color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 
 .culinary-tabs button.active {
@@ -1795,8 +1904,7 @@ ul {
 
 .journey-section {
   color: var(--porcelain);
-  background:
-    linear-gradient(180deg, var(--deep-forest), #14352c 58%, #0f261f 100%);
+  background: linear-gradient(180deg, var(--deep-forest), #14352c 58%, #0f261f 100%);
 }
 
 .journey-shell {
@@ -1845,7 +1953,11 @@ ul {
   background: transparent;
   cursor: pointer;
   font-weight: 650;
-  transition: transform 200ms ease, color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+  transition:
+    transform 200ms ease,
+    color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
 }
 
 .journey-tabs button::after {
@@ -1968,7 +2080,9 @@ ul {
   border-radius: 8px;
   background: #223028;
   box-shadow: 0 34px 96px rgba(0, 0, 0, 0.28);
-  transition: box-shadow 200ms ease, transform 200ms ease;
+  transition:
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
 .journey-media:hover {
@@ -2051,7 +2165,10 @@ ul {
   cursor: pointer;
   font-weight: 650;
   text-align: left;
-  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 
 .journey-flow button:hover {
@@ -2090,7 +2207,14 @@ ul {
   gap: clamp(36px, 7vw, 110px);
   align-items: center;
   color: var(--porcelain);
-  background: var(--forest);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 18, 14, 0.98),
+      rgba(22, 61, 50, 0.98) 58%,
+      rgba(38, 21, 25, 0.92)
+    ),
+    var(--forest);
 }
 
 .experience-band h2,
@@ -2171,7 +2295,18 @@ ul {
   grid-template-columns: minmax(300px, 0.75fr) minmax(360px, 1fr);
   gap: clamp(34px, 7vw, 118px);
   align-items: start;
-  background: var(--ivory);
+  color: var(--porcelain);
+  background:
+    linear-gradient(135deg, var(--deep-forest), var(--forest) 58%, #1d2f26), var(--deep-forest);
+}
+
+.inquiry-section h2,
+.inquiry-copy p:not(.eyebrow) {
+  color: var(--porcelain);
+}
+
+.inquiry-copy p:not(.eyebrow) {
+  color: rgba(255, 253, 247, 0.76);
 }
 
 .inquiry-copy p:not(.eyebrow) {
@@ -2190,12 +2325,12 @@ ul {
   align-items: center;
   gap: 12px;
   min-height: 48px;
-  color: var(--forest);
+  color: rgba(255, 253, 247, 0.88);
   font-weight: 650;
 }
 
 .contact-stack svg {
-  color: var(--wine);
+  color: var(--champagne);
 }
 
 .inquiry-form {
@@ -2519,6 +2654,10 @@ a:focus-visible {
     align-items: start;
   }
 
+  .strategy-visual {
+    display: none;
+  }
+
   .strategy-copy p:not(.eyebrow) {
     max-width: none;
   }
@@ -2559,7 +2698,7 @@ a:focus-visible {
   .culinary-image,
   .culinary-image img,
   .culinary-image video {
-    min-height: 420px;
+    min-height: 360px;
   }
 
   .nature-visual > img,
@@ -2598,7 +2737,11 @@ a:focus-visible {
   .moment-feature,
   .moment-feature img,
   .moment-feature video {
-    min-height: 420px;
+    min-height: 360px;
+  }
+
+  .meeting-configs {
+    display: none;
   }
 
   .inquiry-form {

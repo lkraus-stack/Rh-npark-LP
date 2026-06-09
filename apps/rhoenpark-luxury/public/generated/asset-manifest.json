@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-07T15:54:00Z",
+  "generatedAt": "2026-06-08T20:55:00Z",
   "integration": {
     "provider": "Higgsfield",
     "status": "generated_via_cli",
@@ -28,11 +28,15 @@
       "type": "image",
       "targetPath": "apps/rhoenpark-luxury/public/images/concepts/private-chalet-village.jpg",
       "publicUrl": "/images/concepts/private-chalet-village.jpg",
-      "status": "prompt_ready_not_generated",
-      "fallback": "remote_chalet_concept",
-      "label": "Konzeptvorschau für geplante Private Chalets",
+      "status": "generated_local_optimized",
+      "fallback": "private-chalet-village",
+      "sourceModel": "Soul Location",
+      "sourceJobId": "97edb612-791b-4b1c-b9d1-1d39d7a9c6e6",
+      "sourceUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3EJMXJrytMWvgvHF8zrpQCCMl4k/hf_20260608_205418_97edb612-791b-4b1c-b9d1-1d39d7a9c6e6.png",
+      "localFileSize": "603 KB",
+      "label": "Konzeptvorschau für geplante Private Chalets in der Rhön",
       "alt": "Konzeptbild für geplante private Chalets in der Rhön-Landschaft",
-      "metaDescription": "Vorbereiteter Konzeptpfad für RhönVillage und Private Chalets; nur für Zukunftsvisionen nutzen.",
+      "metaDescription": "Konzeptmotiv für RhönVillage: private Chalets, Morgennebel, Waldhänge und ruhige Rhön-Natur; nur für Zukunftsvisionen nutzen.",
       "bestFor": ["Private Chalets", "RhönVillage", "Zukunftsvision"],
       "avoidFor": ["bestehende Zimmer", "operative Ist-Zustände"]
     },
@@ -83,6 +87,24 @@
       "metaDescription": "Wellnessvideo für Spa-Erlebnis: stilles Wasser, Dampf, Abendlicht und ruhige Luxus-Atmosphäre.",
       "bestFor": ["Wellness", "Pool", "Luxury-Line-Erlebnis"],
       "avoidFor": ["Kulinarik", "Frühstück", "Tagung"]
+    },
+    {
+      "id": "outdoor-infinity-pool-rhoen",
+      "type": "video",
+      "targetPath": "apps/rhoenpark-luxury/public/videos/outdoor-infinity-pool-rhoen.mp4",
+      "publicUrl": "/videos/outdoor-infinity-pool-rhoen.mp4",
+      "posterUrl": "/images/concepts/outdoor-infinity-pool-rhoen-poster.png",
+      "status": "generated_local_optimized",
+      "fallback": "outdoor-infinity-pool-rhoen-poster",
+      "sourceModel": "Kling v3.0",
+      "sourceJobId": "237d8c4c-d672-4ec8-8a05-c8e0b94ddfa4",
+      "sourceUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3EJMXJrytMWvgvHF8zrpQCCMl4k/hf_20260608_130801_237d8c4c-d672-4ec8-8a05-c8e0b94ddfa4.mp4",
+      "localFileSize": "1.2 MB",
+      "label": "Sunny outdoor infinity pool video for Rhön wellness / nature luxury modules",
+      "alt": "Sonniger Outdoor-Infinitypool mit Blick auf grüne Rhön-Hügel",
+      "metaDescription": "Outdoor-Wellnessclip für sonnige Pool- und Rhönblick-Inhalte: klares Wasser, warme Tagesstimmung und grüne Hügellandschaft.",
+      "bestFor": ["Outdoor-Pool", "Wellness", "Rhönblick", "Sommer"],
+      "avoidFor": ["Indoor-Spa", "Kulinarik", "Frühstück", "Tagung"]
     },
     {
       "id": "suite-forest-view",
@@ -197,6 +219,20 @@
       "metaDescription": "Posterbild für Wellness- und Spa-Inhalte; Pool, Wasser und Abendruhe, nicht für Essen oder Zimmer.",
       "bestFor": ["Wellness", "Pool", "Spa"],
       "avoidFor": ["Kulinarik", "Frühstück", "Suite"]
+    },
+    {
+      "id": "outdoor-infinity-pool-rhoen-poster",
+      "type": "image",
+      "targetPath": "apps/rhoenpark-luxury/public/images/concepts/outdoor-infinity-pool-rhoen-poster.png",
+      "publicUrl": "/images/concepts/outdoor-infinity-pool-rhoen-poster.png",
+      "status": "generated_from_video_thumbnail",
+      "sourceAsset": "outdoor-infinity-pool-rhoen",
+      "localFileSize": "906 KB",
+      "label": "Poster frame for sunny outdoor Rhön infinity pool video",
+      "alt": "Sonniger Infinitypool mit Wasserfläche und Rhön-Hügellandschaft",
+      "metaDescription": "Posterbild für sonnige Outdoor-Wellness- und Poolinhalte; zeigt Wasserfläche, Tageslicht und Rhön-Hügelblick, nicht für Indoor-Spa oder Essen nutzen.",
+      "bestFor": ["Outdoor-Pool", "Wellness", "Rhönblick", "Reduced motion fallback"],
+      "avoidFor": ["Indoor-Spa", "Kulinarik", "Frühstück", "Tagung"]
     },
     {
       "id": "suite-forest-view-poster",
