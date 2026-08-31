@@ -1,6 +1,12 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
-import { type KeyboardEvent as ReactKeyboardEvent, type ReactNode, useEffect, useId, useRef } from "react";
+import {
+  type KeyboardEvent as ReactKeyboardEvent,
+  type ReactNode,
+  useEffect,
+  useId,
+  useRef,
+} from "react";
 
 export interface DrawerProps {
   open: boolean;
@@ -42,6 +48,9 @@ export function Drawer({
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const closedX = side === "right" ? "100%" : "-100%";
+  const transition = shouldReduceMotion
+    ? { duration: 0 }
+    : { duration: 0.36, ease: [0.22, 1, 0.36, 1] as const };
 
   useEffect(() => {
     onCloseRef.current = onClose;
@@ -50,7 +59,8 @@ export function Drawer({
   useEffect(() => {
     if (!open) return undefined;
 
-    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    previousFocusRef.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.setTimeout(() => closeButtonRef.current?.focus(), 0);
@@ -103,9 +113,10 @@ export function Drawer({
       {open && (
         <motion.div
           className={`dialog-layer booking-layer drawer-layer drawer-layer--${side}`}
-          initial={{ opacity: 0 }}
+          initial={shouldReduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={transition}
           onClick={onClose}
         >
           <motion.aside
@@ -117,7 +128,7 @@ export function Drawer({
             initial={{ x: shouldReduceMotion ? 0 : closedX }}
             animate={{ x: 0 }}
             exit={{ x: shouldReduceMotion ? 0 : closedX }}
-            transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
+            transition={transition}
             onClick={(event) => event.stopPropagation()}
             onKeyDown={handleKeyDown}
           >

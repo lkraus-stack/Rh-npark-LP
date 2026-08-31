@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/tagung",
+      "destination": "/tagung/index.html"
+    },
+    {
+      "source": "/tagung/:path*",
+      "destination": "/tagung/index.html"
+    }
+  ]
+}
